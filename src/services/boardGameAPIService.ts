@@ -21,3 +21,23 @@ export const searchGamesByName = (title: string): Promise<Original> => {
     .then((res) => res.data)
     .catch((error) => console.log(error));
 };
+
+export const criteriaFormService = (
+  categories?: string,
+  max_play_time?: number,
+  min_players?: number,
+  msrp?: number
+): Promise<Original> => {
+  return axios
+    .get(`https://api.boardgameatlas.com/api/search/`, {
+      params: {
+        client_id: clientID,
+        categories: categories,
+        gt_max_playtime: max_play_time,
+        gt_min_players: min_players,
+        lt_msrp: msrp,
+      },
+    })
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
+};
