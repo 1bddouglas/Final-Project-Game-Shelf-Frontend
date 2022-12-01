@@ -1,0 +1,21 @@
+[debug] [2022-12-01T15:13:09.871Z] ----------------------------------------------------------------------
+[debug] [2022-12-01T15:13:09.872Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\1bddo\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-12-01T15:13:09.873Z] CLI Version:   11.16.1
+[debug] [2022-12-01T15:13:09.873Z] Platform:      win32
+[debug] [2022-12-01T15:13:09.873Z] Node Version:  v16.18.0
+[debug] [2022-12-01T15:13:09.874Z] Time:          Thu Dec 01 2022 10:13:09 GMT-0500 (Eastern Standard Time)
+[debug] [2022-12-01T15:13:09.874Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-01T15:13:09.880Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-01T15:13:09.881Z] > authorizing via signed-in user (1bddouglas@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\1bddo\OneDrive\Desktop\Final-Project-Game-Shelf\frontend
+
