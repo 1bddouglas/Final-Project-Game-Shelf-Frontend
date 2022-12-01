@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { getTopRatedGames } from "./services/boardGameAPIService";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
+import Main from "./components/Main";
+import MyShelf from "./components/MyShelf";
+import Profile from "./components/Profile";
+import SearchResults from "./components/SearchResults";
+import SingleGame from "./components/SingleGame";
+import Wishlist from "./components/Wishlist";
+import Header from "./components/Header";
 
 function App() {
+  console.log(getTopRatedGames());
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/home" element={<Main />} />
+          <Route path="*" element={<Navigate to={"/home"} />}></Route>
+          <Route path="/myShelf" element={<MyShelf />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/searchResults" element={<SearchResults />} />
+          <Route path="/singleGame/:id" element={<SingleGame />} />
+          <Route path="/wishlist/:id" element={<Wishlist />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
