@@ -27,7 +27,7 @@ function App() {
           <Route path="*" element={<Navigate to={"/home"} />}></Route>
           <Route path="/myShelf" element={<MyShelf />} />
           <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/searchResults" element={<SearchResults games={[]} />} />
+          <Route path="/searchResults" element={<SearchResults />} />
           <Route path="/singleGame/:id" element={<SingleGame />} />
           <Route path="/wishlist/:id" element={<Wishlist />} />
         </Routes>

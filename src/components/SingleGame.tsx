@@ -41,7 +41,7 @@ const SingleGame = () => {
         )}
         {singleGame?.min_playtime && (
           <li>
-            Playtime: {singleGame?.min_playtime} - {singleGame?.max_playtime}{" "}
+            Playtime: {singleGame?.min_playtime} - {singleGame?.max_playtime}
             mins
           </li>
         )}

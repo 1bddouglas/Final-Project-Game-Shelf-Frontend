@@ -9,6 +9,7 @@ import CriteriaForm from "./CriteriaForm";
 import "./Main.css";
 import SearchForm from "./SearchForm";
 import SearchResults from "./SearchResults";
+import SingleGameResult from "./SingleGameResult";
 
 const Main = () => {
   const [games, setGames] = useState<BoardGame[]>([]);
@@ -51,7 +52,12 @@ const Main = () => {
         minPlayers={setPlayerCount}
         msrp={setPrice}
       />
-      <SearchResults games={games} />
+      <ul>
+        {games.map((game) => (
+          <SingleGameResult key={game.id} game={game} />
+        ))}
+      </ul>
+      {/* <SearchResults games={games} /> */}
     </div>
   );
 };

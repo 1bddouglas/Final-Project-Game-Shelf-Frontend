@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CriteriaForm.css";
 
 interface Props {
@@ -18,6 +19,7 @@ const CriteriaForm = ({
   const [playTime, setPlayTime] = useState("");
   const [playerCount, setPlayerCount] = useState("");
   const [price, setPrice] = useState("");
+  const navigate = useNavigate();
 
   const criteriaSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
@@ -26,6 +28,14 @@ const CriteriaForm = ({
     minPlayers(playerCount);
     msrp(price);
     console.log(price);
+    navigate(
+      `/searchResults?${new URLSearchParams({
+        category,
+        playTime,
+        playerCount,
+        price,
+      })}`
+    );
   };
 
   return (
