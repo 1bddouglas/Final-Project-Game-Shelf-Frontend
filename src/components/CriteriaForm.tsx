@@ -5,7 +5,7 @@ interface Props {
   chooseCategory: (categories: string) => void;
   maxPlayTime: (max_play_time: string) => void;
   minPlayers: (min_players: string) => void;
-  msrp: (msrp: string) => void;
+  msrp: (price: string) => void;
 }
 
 const CriteriaForm = ({
@@ -25,6 +25,7 @@ const CriteriaForm = ({
     maxPlayTime(playTime);
     minPlayers(playerCount);
     msrp(price);
+    console.log(price);
   };
 
   return (
@@ -38,6 +39,7 @@ const CriteriaForm = ({
           setCategory(e.target.value);
         }}
       >
+        <option value="none">Select category</option>
         <option value="fW5vusE96B">Campaign</option>
         <option value="PinhJrhnxU">Bluffing</option>
         <option value="ge8pIhEUGE">Cooperative</option>
@@ -64,6 +66,7 @@ const CriteriaForm = ({
           setPlayTime(e.target.value);
         }}
       />
+      <p>{playTime}</p>
       <label htmlFor="playerCount">Player Count</label>
       <input
         type="number"

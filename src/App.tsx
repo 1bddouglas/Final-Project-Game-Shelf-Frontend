@@ -15,6 +15,7 @@ import SearchResults from "./components/SearchResults";
 import SingleGame from "./components/SingleGame";
 import Wishlist from "./components/Wishlist";
 import Header from "./components/Header";
+import SingleGameResult from "./components/SingleGameResult";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/myShelf" element={<MyShelf />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/searchResults" element={<SearchResults games={[]} />} />
-          <Route path="/singleGame/:id" element={<SingleGame />} />
+          <Route path="/singleGame/:ids" element={<SingleGame />} />
           <Route path="/wishlist/:id" element={<Wishlist />} />
         </Routes>
       </Router>

@@ -1,6 +1,8 @@
 import axios from "axios";
+import SingleGame from "../components/SingleGame";
 import BoardGame from "../models/BoardGame";
 import Original from "../models/Original";
+import QueryParams from "../models/QueryParams";
 
 const clientID: string = process.env.REACT_APP_CLIENT_ID || "";
 
@@ -26,17 +28,33 @@ export const criteriaFormService = (
   categories?: string,
   max_play_time?: number,
   min_players?: number,
-  msrp?: number
+  price?: number
 ): Promise<Original> => {
+  let params: QueryParams = { client_id: clientID };
+  if (categories) {
+    params.categories = categories;
+  }
+  if (max_play_time) {
+    params.lt_max_playtime = max_play_time;
+  }
+  if (min_players) {
+    params.gt_min_players = min_players;
+  }
+  if (price) {
+    params.lt_price = price;
+  }
   return axios
     .get(`https://api.boardgameatlas.com/api/search/`, {
-      params: {
-        client_id: clientID,
-        categories: categories,
-        gt_max_playtime: max_play_time,
-        gt_min_players: min_players,
-        lt_msrp: msrp,
-      },
+      params,
+    })
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
+};
+
+export const singleGameService = (id: string) => {
+  return axios
+    .get(`https://api.boardgameatlas.com/api/search/`, {
+      params: { ids: id, client_id: clientID },
     })
     .then((res) => res.data)
     .catch((error) => console.log(error));

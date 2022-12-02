@@ -17,6 +17,9 @@ const Main = () => {
   const [playTime, setPlayTime] = useState("");
   const [playerCount, setPlayerCount] = useState("");
   const [price, setPrice] = useState("");
+
+  // let minutes = +playTime * 60;
+
   useEffect(() => {
     if (searchTerm !== "") {
       searchGamesByName(searchTerm).then((res) => setGames(res.games));
@@ -27,9 +30,15 @@ const Main = () => {
 
   useEffect(() => {
     if (category || playTime || playerCount || price) {
-      criteriaFormService(category, +playTime, +playerCount, +price).then(
-        (res) => setGames(res.games)
-      );
+      criteriaFormService(
+        category,
+        +playTime * 60,
+        +playerCount - 1,
+        +price
+      ).then((res) => {
+        console.log(playTime);
+        setGames(res.games);
+      });
     }
   }, [category, playTime, playerCount, price]);
 
