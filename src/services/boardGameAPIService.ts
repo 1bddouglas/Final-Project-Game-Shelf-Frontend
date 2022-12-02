@@ -51,9 +51,9 @@ export const criteriaFormService = (
     .catch((error) => console.log(error));
 };
 
-export const singleGameService = (id: string) => {
+export const singleGameService = (id: string): Promise<Original> => {
   return axios
-    .get(`https://api.boardgameatlas.com/api/search/`, {
+    .get(`https://api.boardgameatlas.com/api/search`, {
       params: { ids: id, client_id: clientID },
     })
     .then((res) => res.data)

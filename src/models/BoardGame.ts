@@ -1,5 +1,6 @@
 import Categories from "./Categories";
 import Images from "./Images";
+import PrimaryDesigner from "./PrimaryDesigner";
 
 export default interface BoardGame {
   id: string;
@@ -9,11 +10,11 @@ export default interface BoardGame {
   min_players: number;
   max_players: number;
   min_age: number;
-  min_play_time: number;
-  max_play_time: number;
-  description: string;
+  min_playtime: number;
+  max_playtime: number;
+  description_preview: string;
   categories: Categories[];
-  primary_designer: string;
+  primary_designer: PrimaryDesigner;
   rank: number;
   images: Images;
 }
