@@ -19,8 +19,6 @@ const Main = () => {
   const [playerCount, setPlayerCount] = useState("");
   const [price, setPrice] = useState("");
 
-  // let minutes = +playTime * 60;
-
   useEffect(() => {
     if (searchTerm !== "") {
       searchGamesByName(searchTerm).then((res) => setGames(res.games));
@@ -57,7 +55,6 @@ const Main = () => {
           <SingleGameResult key={game.id} game={game} />
         ))}
       </ul>
-      {/* <SearchResults games={games} /> */}
     </div>
   );
 };

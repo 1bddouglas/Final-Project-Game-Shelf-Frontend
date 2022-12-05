@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import BoardGame from "../models/BoardGame";
 import { singleGameService } from "../services/boardGameAPIService";
 import "./SingleGame.css";
@@ -11,6 +11,7 @@ const SingleGame = () => {
   const [singleGame, setSingleGame] = useState<BoardGame>();
   const [validImage, setValidImage] = useState(false);
 
+  // const navigate = useNavigate();
   const id: string | undefined = useParams().id;
 
   let cleanText = singleGame?.description_preview?.replace(
@@ -29,6 +30,7 @@ const SingleGame = () => {
 
   return (
     <div className="SingleGame">
+      {/* <button onClick={() => navigate(-1)}>Back to search results</button> */}
       <h2>{singleGame?.name}</h2>
       <ImageComponant src={singleGame?.images.medium!} />
       <button className="shelf-button">Add to my Shelf</button>
