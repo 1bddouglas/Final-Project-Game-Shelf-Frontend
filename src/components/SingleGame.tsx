@@ -29,31 +29,37 @@ const SingleGame = () => {
   console.dir(singleGame?.images.medium);
 
   return (
-    <div className="SingleGame">
-      {/* <button onClick={() => navigate(-1)}>Back to search results</button> */}
-      <h2>{singleGame?.name}</h2>
-      <ImageComponant src={singleGame?.images.medium!} />
-      <button className="shelf-button">Add to my Shelf</button>
-      <button className="wishlist-button">Add to my Wishlist</button>
-      <ul>
-        {singleGame?.min_players && (
-          <li>
-            Players: {singleGame?.min_players} - {singleGame?.max_players}
-          </li>
-        )}
-        {singleGame?.min_playtime && (
-          <li>
-            Playtime: {singleGame?.min_playtime} - {singleGame?.max_playtime}
-            mins
-          </li>
-        )}
-        {singleGame?.msrp && <li>Price: ${singleGame?.msrp}</li>}
-        {singleGame?.primary_designer.name && (
-          <li>Designer: {singleGame?.primary_designer.name}</li>
-        )}
-      </ul>
-      {singleGame?.description_preview && <p>{cleanText}</p>}
-    </div>
+    <>
+      {singleGame ? (
+        <div className="SingleGame">
+          <h2>{singleGame?.name}</h2>
+          <ImageComponant src={singleGame?.images.medium!} />
+          <button className="shelf-button">Add to my Shelf</button>
+          <button className="wishlist-button">Add to my Wishlist</button>
+          <ul>
+            {singleGame?.min_players && (
+              <li>
+                Players: {singleGame?.min_players} - {singleGame?.max_players}
+              </li>
+            )}
+            {singleGame?.min_playtime && (
+              <li>
+                Playtime: {singleGame?.min_playtime} -{" "}
+                {singleGame?.max_playtime}
+                mins
+              </li>
+            )}
+            {singleGame?.msrp && <li>Price: ${singleGame?.msrp}</li>}
+            {singleGame?.primary_designer.name && (
+              <li>Designer: {singleGame?.primary_designer.name}</li>
+            )}
+          </ul>
+          {singleGame?.description_preview && <p>{cleanText}</p>}
+        </div>
+      ) : (
+        <p>Loading</p>
+      )}
+    </>
   );
 };
 
