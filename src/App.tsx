@@ -16,8 +16,12 @@ import SingleGame from "./components/SingleGame";
 import Wishlist from "./components/Wishlist";
 import Header from "./components/Header";
 import SingleGameResult from "./components/SingleGameResult";
+import { getAllAccounts } from "./services/accountAPIService";
 
 function App() {
+  getAllAccounts().then((res) => {
+    console.log(res);
+  });
   return (
     <div className="App">
       <Router>
