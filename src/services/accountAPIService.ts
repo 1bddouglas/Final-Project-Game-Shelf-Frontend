@@ -16,10 +16,19 @@ export const getAllAccounts = (): Promise<Account[]> => {
 
 export const findAccount = (uid: string): Promise<Account> => {
   return axios
-    .get(`${baseUrl}/${uid}`)
+    .get(`${baseUrl}/accounts/${uid}`)
     .then((res) => {
       return res.data;
     })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const createAccount = (account: Account): Promise<Account> => {
+  return axios
+    .post(`${baseUrl}/accounts`, account)
+    .then((res) => res.data)
     .catch((err) => {
       console.log(err);
     });

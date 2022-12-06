@@ -1,12 +1,16 @@
-import { ReactNode, useContext, useEffect, useState } from "react";
+import { ReactNode, useContext, useEffect, useId, useState } from "react";
 import { User } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import AuthContext from "./AuthContext";
 import { log } from "console";
-import { findAccount } from "../services/accountAPIService";
+import { createAccount, findAccount } from "../services/accountAPIService";
+import Account from "../models/Account";
 
 function AuthContextProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [account, setAccount] = useState<Account | null>(null);
+
+  console.log(account);
   console.log(user);
 
   useEffect(() => {
@@ -15,13 +19,24 @@ function AuthContextProvider({ children }: { children: ReactNode }) {
       setUser(newUser);
       if (newUser) {
         findAccount(newUser.uid).then((res) => {
-          console.log(res);
+          if (res) {
+            setAccount(res);
+          } else {
+            createAccount({
+              uid: newUser.uid,
+              wishlist: [],
+              myShelf: [],
+              myFriends: [],
+            }).then((res) => setAccount(res));
+          }
         });
       }
     });
   }, []);
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, account }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
 export default AuthContextProvider;
