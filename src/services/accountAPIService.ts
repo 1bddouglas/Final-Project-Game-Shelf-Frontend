@@ -33,3 +33,12 @@ export const createAccount = (account: Account): Promise<Account> => {
       console.log(err);
     });
 };
+
+export const addToWishlist = (account: Account): Promise<Account> => {
+  return axios
+    .put(`${baseUrl}/accounts/${account.uid}`, account)
+    .then((res) => res.data)
+    .catch((err) => {
+      console.log(err);
+    });
+};

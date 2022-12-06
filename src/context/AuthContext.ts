@@ -5,10 +5,11 @@ import Account from "../models/Account";
 export interface AuthContextModel {
   account: Account | null;
   user: User | null; // null when not logged in
+  setAccount: (account: Account) => void;
 }
 const defaultValue: AuthContextModel = {
   account: null,
-
+  setAccount: () => {},
   user: null,
 };
 const AuthContext = createContext(defaultValue);

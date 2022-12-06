@@ -34,7 +34,7 @@ function AuthContextProvider({ children }: { children: ReactNode }) {
     });
   }, []);
   return (
-    <AuthContext.Provider value={{ user, account }}>
+    <AuthContext.Provider value={{ user, account, setAccount }}>
       {children}
     </AuthContext.Provider>
   );

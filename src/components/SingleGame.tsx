@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BoardGame from "../models/BoardGame";
 import { singleGameService } from "../services/boardGameAPIService";
@@ -6,8 +6,11 @@ import "./SingleGame.css";
 import imgNotFound from "../assets/img-not-found.jpg";
 import axios from "axios";
 import ImageComponant from "./ImageComponent";
+import AuthContext from "../context/AuthContext";
+import { addToWishlist } from "../services/accountAPIService";
 
 const SingleGame = () => {
+  const { account, setAccount } = useContext(AuthContext);
   const [singleGame, setSingleGame] = useState<BoardGame>();
   const [validImage, setValidImage] = useState(false);
 
@@ -28,6 +31,21 @@ const SingleGame = () => {
 
   console.dir(singleGame?.images.medium);
 
+  const addToWishlistHandler = () => {
+    console.log(singleGame);
+
+    if (account && singleGame) {
+      const copyOfAccount = { ...account };
+      const copyOfWishlist = [...account.wishlist];
+      copyOfAccount.wishlist = [...copyOfWishlist, singleGame];
+      console.log(copyOfWishlist);
+
+      addToWishlist(copyOfAccount).then((res) => {
+        setAccount(res);
+      });
+    }
+  };
+
   return (
     <>
       {singleGame ? (
@@ -35,7 +53,9 @@ const SingleGame = () => {
           <h2>{singleGame?.name}</h2>
           <ImageComponant src={singleGame?.images.medium!} />
           <button className="shelf-button">Add to my Shelf</button>
-          <button className="wishlist-button">Add to my Wishlist</button>
+          <button className="wishlist-button" onClick={addToWishlistHandler}>
+            Add to my Wishlist
+          </button>
           <ul>
             {singleGame?.min_players && (
               <li>
