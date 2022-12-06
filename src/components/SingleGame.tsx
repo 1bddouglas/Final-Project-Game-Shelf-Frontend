@@ -7,7 +7,7 @@ import imgNotFound from "../assets/img-not-found.jpg";
 import axios from "axios";
 import ImageComponant from "./ImageComponent";
 import AuthContext from "../context/AuthContext";
-import { addToWishlist } from "../services/accountAPIService";
+import { updateAccountDatabase } from "../services/accountAPIService";
 
 const SingleGame = () => {
   const { account, setAccount } = useContext(AuthContext);
@@ -40,7 +40,22 @@ const SingleGame = () => {
       copyOfAccount.wishlist = [...copyOfWishlist, singleGame];
       console.log(copyOfWishlist);
 
-      addToWishlist(copyOfAccount).then((res) => {
+      updateAccountDatabase(copyOfAccount).then((res) => {
+        setAccount(res);
+      });
+    }
+  };
+
+  const addToShelfHandler = () => {
+    console.log(singleGame);
+
+    if (account && singleGame) {
+      const copyOfAccount = { ...account };
+      const copyOfShelf = [...account.myShelf];
+      copyOfAccount.myShelf = [...copyOfShelf, singleGame];
+      console.log(copyOfShelf);
+
+      updateAccountDatabase(copyOfAccount).then((res) => {
         setAccount(res);
       });
     }
@@ -52,7 +67,9 @@ const SingleGame = () => {
         <div className="SingleGame">
           <h2>{singleGame?.name}</h2>
           <ImageComponant src={singleGame?.images.medium!} />
-          <button className="shelf-button">Add to my Shelf</button>
+          <button className="shelf-button" onClick={addToShelfHandler}>
+            Add to my Shelf
+          </button>
           <button className="wishlist-button" onClick={addToWishlistHandler}>
             Add to my Wishlist
           </button>

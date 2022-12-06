@@ -34,7 +34,7 @@ export const createAccount = (account: Account): Promise<Account> => {
     });
 };
 
-export const addToWishlist = (account: Account): Promise<Account> => {
+export const updateAccountDatabase = (account: Account): Promise<Account> => {
   return axios
     .put(`${baseUrl}/accounts/${account.uid}`, account)
     .then((res) => res.data)

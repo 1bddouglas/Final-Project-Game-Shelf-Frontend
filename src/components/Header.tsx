@@ -32,7 +32,10 @@ const Header = () => {
           <p>{user.displayName}</p>
           {!!user.photoURL && (
             <p>
-              <img src={user.photoURL} alt="" />
+              <Link to={`/profile/${user.uid}`}>
+                {/* <img src={user.photoURL} alt="" /> */}
+                <p>Bananas</p>
+              </Link>
             </p>
           )}
         </>

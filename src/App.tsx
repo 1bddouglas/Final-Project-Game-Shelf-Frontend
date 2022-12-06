@@ -29,11 +29,11 @@ function App() {
         <Routes>
           <Route path="/home" element={<Main />} />
           <Route path="*" element={<Navigate to={"/home"} />}></Route>
-          <Route path="/myShelf" element={<MyShelf />} />
-          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/searchResults" element={<SearchResults />} />
           <Route path="/singleGame/:id" element={<SingleGame />} />
-          <Route path="/wishlist/:id" element={<Wishlist />} />
+          <Route path="/profile/:uid" element={<Profile />} />
+          <Route path="/wishlist/:uid" element={<Wishlist />} />
+          <Route path="/myShelf/:uid" element={<MyShelf />} />
         </Routes>
       </Router>
     </div>
