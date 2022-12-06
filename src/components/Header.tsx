@@ -12,12 +12,18 @@ const Header = () => {
 
   return (
     <header className="Header">
-      <Link to={"/"}>
-        <h1>
+      <img
+        src={backArrow}
+        className="back-arrow"
+        onClick={() => navigate(-1)}
+      />
+
+      <h1>
+        <Link to={"/"}>
           <img src={logo} alt="The Game Shelf" className="logo" />
-        </h1>
-        <img src="" onClick={() => navigate(-1)} />
-      </Link>
+        </Link>
+      </h1>
+
       {user ? (
         <>
           <button className="sign-out" onClick={signOut}>

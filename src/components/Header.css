@@ -1,3 +1,11 @@
 .Header .logo {
   width: 200px;
 }
+.Header .back-arrow {
+  width: 50px;
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+}
