@@ -1,8 +1,8 @@
-import { ReactNode, useContext, useEffect, useId, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { User } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import AuthContext from "./AuthContext";
-import { log } from "console";
+
 import { createAccount, findAccount } from "../services/accountAPIService";
 import Account from "../models/Account";
 
