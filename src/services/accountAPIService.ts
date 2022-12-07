@@ -16,7 +16,7 @@ export const getAllAccounts = (): Promise<Account[]> => {
 
 export const findAccount = (uid: string): Promise<Account> => {
   return axios
-    .get(`${baseUrl}/accounts/${uid}`)
+    .get(`${baseUrl}/accounts/account/${uid}`)
     .then((res) => {
       return res.data;
     })
@@ -38,6 +38,17 @@ export const updateAccountDatabase = (account: Account): Promise<Account> => {
   return axios
     .put(`${baseUrl}/accounts/${account.uid}`, account)
     .then((res) => res.data)
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getAccountByName = (displayName: string): Promise<Account[]> => {
+  return axios
+    .get(`${baseUrl}/accounts/search/${displayName}`)
+    .then((res) => {
+      return res.data;
+    })
     .catch((err) => {
       console.log(err);
     });
