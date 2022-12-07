@@ -8,8 +8,9 @@ const Profile = () => {
         <Link to={"/MyShelf/:uid"}>
           <li>My Shelf</li>
         </Link>
-
-        <li>My Wishlist</li>
+        <Link to={"/wishlist/:uid"}>
+          <li>My Wishlist</li>
+        </Link>
         <li>My Friends</li>
         <li>My Reviews</li>
         <li>My Posts</li>

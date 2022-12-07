@@ -24,6 +24,7 @@ function AuthContextProvider({ children }: { children: ReactNode }) {
           } else {
             createAccount({
               uid: newUser.uid,
+              name: newUser.displayName!,
               wishlist: [],
               myShelf: [],
               myFriends: [],

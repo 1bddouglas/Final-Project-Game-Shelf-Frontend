@@ -29,12 +29,14 @@ const Header = () => {
           <button className="sign-out" onClick={signOut}>
             Sign out
           </button>
-          <p>{user.displayName}</p>
+          <Link to={`/profile/${user.uid}`}>
+            <p>{user.displayName}</p>
+          </Link>
+
           {!!user.photoURL && (
             <p>
               <Link to={`/profile/${user.uid}`}>
-                {/* <img src={user.photoURL} alt="" /> */}
-                <p>Bananas</p>
+                <img src={user.photoURL} alt="" />
               </Link>
             </p>
           )}
