@@ -11,3 +11,10 @@ export const createReview = (review: Review): Promise<Review> => {
       console.log(err);
     });
 };
+
+export const getReviewsByID = (id: string): Promise<Review[]> => {
+  return axios
+    .get(`${baseUrl}/reviews/${id}`)
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+};

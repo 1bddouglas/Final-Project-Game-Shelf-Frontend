@@ -6,7 +6,7 @@ import "./SingleGame.css";
 import ImageComponant from "./ImageComponent";
 import AuthContext from "../context/AuthContext";
 import { updateAccountDatabase } from "../services/accountAPIService";
-import { createReview } from "../services/reviewAPIService";
+import { createReview, getReviewsByID } from "../services/reviewAPIService";
 import Review from "../models/Review";
 
 const SingleGame = () => {
@@ -14,6 +14,7 @@ const SingleGame = () => {
   const [singleGame, setSingleGame] = useState<BoardGame>();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [reviews, setReviews] = useState<Review[]>([]);
 
   // const navigate = useNavigate();
   const id: string | undefined = useParams().id;
@@ -25,9 +26,15 @@ const SingleGame = () => {
 
   useEffect(() => {
     console.log(id);
-    singleGameService(id!).then((res) => {
-      setSingleGame(res.games[0]);
-    });
+    if (id) {
+      singleGameService(id!).then((res) => {
+        setSingleGame(res.games[0]);
+      });
+      getReviewsByID(id!).then((res) => {
+        setReviews(res);
+        console.log(res);
+      });
+    }
   }, [id]);
 
   console.dir(singleGame?.images.medium);
@@ -72,7 +79,12 @@ const SingleGame = () => {
       content,
     };
     console.log(newReview);
-    createReview(newReview);
+    createReview(newReview).then(() => {
+      getReviewsByID(singleGame?.id!).then((res) => {
+        setReviews(res);
+        console.log(res);
+      });
+    });
   };
 
   return (
@@ -108,7 +120,17 @@ const SingleGame = () => {
             </ul>
             {singleGame?.description_preview && <p>{cleanText}</p>}
           </section>
-          <section className="game-reviews"></section>
+          <section className="game-reviews">
+            <h2>Reviews</h2>
+            <ul>
+              {reviews.map((review) => (
+                <li key={review._id}>
+                  <p>{review.title}</p>
+                  <p>{review.content}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
           <section className="review-form">
             <h2>Submit a review</h2>
             <form onSubmit={reviewSubmitHandler}>
@@ -129,7 +151,15 @@ const SingleGame = () => {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
               ></textarea>
-              <button className="review-submit-btn">Submit your review</button>
+              {title && content ? (
+                <button className="review-submit-btn">
+                  Submit your review
+                </button>
+              ) : (
+                <button className="review-submit-btn" disabled>
+                  Submit your review
+                </button>
+              )}
             </form>
           </section>
         </div>
