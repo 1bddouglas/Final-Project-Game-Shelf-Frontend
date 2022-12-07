@@ -7,4 +7,5 @@ export default interface Account {
   myShelf: BoardGame[];
   myFriends: string[];
   uid: string;
+  profilePic: string;
 }

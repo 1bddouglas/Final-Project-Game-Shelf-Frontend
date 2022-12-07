@@ -1,13 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 import Account from "../models/Account";
-import { getAccountByName } from "../services/accountAPIService";
+import { findAccount, getAccountByName } from "../services/accountAPIService";
 import FriendSearch from "./FriendSearch";
 import "./Profile.css";
 
 const Profile = () => {
+  const uid = useParams().uid;
   const [searchTerm, setSearchTerm] = useState("");
   const [friendList, setFriendList] = useState<Account[]>([]);
+  const [profile, setProfile] = useState<Account>();
+  const { account } = useContext(AuthContext);
+
   useEffect(() => {
     if (searchTerm) {
       getAccountByName(searchTerm).then((res) => {
@@ -15,17 +20,23 @@ const Profile = () => {
         console.log(res);
       });
     }
-  }, [searchTerm]);
+    if (uid) {
+      findAccount(uid).then((res) => {
+        setProfile(res);
+        console.log(res);
+      });
+    }
+  }, [searchTerm, uid]);
 
   return (
     <div className="Profile">
       <FriendSearch setSearchTerm={setSearchTerm} />
-
+      <p>{profile?.name}</p>
       <ul>
-        <Link to={"/MyShelf/:uid"}>
+        <Link to={`/myShelf/${account?.uid}`}>
           <li>My Shelf</li>
         </Link>
-        <Link to={"/wishlist/:uid"}>
+        <Link to={`/wishlist/${account?.uid}`}>
           <li>My Wishlist</li>
         </Link>
         <li>My Friends</li>

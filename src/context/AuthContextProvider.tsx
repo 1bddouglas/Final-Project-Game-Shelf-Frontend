@@ -28,6 +28,7 @@ function AuthContextProvider({ children }: { children: ReactNode }) {
               wishlist: [],
               myShelf: [],
               myFriends: [],
+              profilePic: newUser.photoURL!,
             }).then((res) => setAccount(res));
           }
         });

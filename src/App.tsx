@@ -17,6 +17,8 @@ import Wishlist from "./components/Wishlist";
 import Header from "./components/Header";
 import SingleGameResult from "./components/SingleGameResult";
 import { getAllAccounts } from "./services/accountAPIService";
+import UserResults from "./components/UserResults";
+import FriendProfile from "./components/FriendProfile";
 
 function App() {
   getAllAccounts().then((res) => {
@@ -34,6 +36,8 @@ function App() {
           <Route path="/profile/:uid" element={<Profile />} />
           <Route path="/wishlist/:uid" element={<Wishlist />} />
           <Route path="/myShelf/:uid" element={<MyShelf />} />
+          <Route path="/userResults" element={<UserResults />} />
+          <Route path="/friendProfile/:uid" element={<FriendProfile/>}/>
         </Routes>
       </Router>
     </div>

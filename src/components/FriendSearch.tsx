@@ -1,4 +1,5 @@
 import { FormEvent, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import AuthContextProvider from "../context/AuthContextProvider";
 import Account from "../models/Account";
@@ -10,11 +11,13 @@ interface Props {
 
 const FriendSearch = ({ setSearchTerm }: Props) => {
   const [searchFriend, setSearchFriend] = useState("");
+  const navigate = useNavigate();
   // const account: Account = useContext(AuthContext)
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
     setSearchTerm(searchFriend);
     setSearchFriend("");
+    navigate(`/userResults?${new URLSearchParams({ searchFriend })}`);
   };
 
   return (
