@@ -37,8 +37,6 @@ const SingleGame = () => {
     }
   }, [id]);
 
-  console.dir(singleGame?.images.medium);
-
   const addToWishlistHandler = () => {
     console.log(singleGame);
 
@@ -79,6 +77,8 @@ const SingleGame = () => {
         title,
         content,
         reviewAccount: account,
+        reviewerId: account.uid,
+        gameName: singleGame?.name!,
       };
       console.log(newReview);
       createReview(newReview).then(() => {
@@ -127,9 +127,9 @@ const SingleGame = () => {
             <h2>Reviews</h2>
             <ul>
               {reviews.map((review) => (
-                <div>
+                <div key={review._id}>
                   <p>{review.reviewAccount.name}</p>
-                  <li key={review._id}>
+                  <li>
                     <p>{review.title}</p>
                     <p>{review.content}</p>
                   </li>

@@ -42,7 +42,9 @@ const Profile = () => {
         <Link to={`/myFriends/${account?.uid}`}>
           <li>My Friends</li>
         </Link>
-        <li>My Reviews</li>
+        <Link to={`/reviews/${account?.uid}`}>
+          <li>My Reviews</li>
+        </Link>
         <li>My Posts</li>
       </ul>
     </div>

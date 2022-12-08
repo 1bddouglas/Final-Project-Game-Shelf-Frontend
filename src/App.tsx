@@ -20,6 +20,7 @@ import { getAllAccounts } from "./services/accountAPIService";
 import UserResults from "./components/UserResults";
 import FriendProfile from "./components/FriendProfile";
 import MyFriends from "./components/MyFriends";
+import MyReviews from "./components/MyReviews";
 
 function App() {
   getAllAccounts().then((res) => {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/userResults" element={<UserResults />} />
           <Route path="/friendProfile/:uid" element={<FriendProfile />} />
           <Route path="/myFriends/:uid" element={<MyFriends />} />
+          <Route path="/reviews/:uid" element={<MyReviews />} />
         </Routes>
       </Router>
     </div>

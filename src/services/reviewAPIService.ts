@@ -18,3 +18,10 @@ export const getReviewsByID = (id: string): Promise<Review[]> => {
     .then((res) => res.data)
     .catch((err) => console.log(err));
 };
+
+export const getMyReviews = (id: string): Promise<Review[]> => {
+  return axios
+    .get(`${baseUrl}/reviews/reviewPage/${id}`)
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+};
