@@ -32,7 +32,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/home" element={<Main />} />
-          <Route path="*" element={<Navigate to={"/home"} />}></Route>
           <Route path="/searchResults" element={<SearchResults />} />
           <Route path="/singleGame/:id" element={<SingleGame />} />
           <Route path="/profile/:uid" element={<Profile />} />
@@ -42,6 +41,7 @@ function App() {
           <Route path="/friendProfile/:uid" element={<FriendProfile />} />
           <Route path="/myFriends/:uid" element={<MyFriends />} />
           <Route path="/reviews/:uid" element={<MyReviews />} />
+          <Route path="*" element={<Navigate to={"/home"} />} />
         </Routes>
       </Router>
     </div>

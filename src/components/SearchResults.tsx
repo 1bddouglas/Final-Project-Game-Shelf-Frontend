@@ -17,7 +17,11 @@ const SearchResults = () => {
   const playerCount = searchParams.get("playerCount");
   const price = searchParams.get("price");
   useEffect(() => {
-    searchGamesByName(searchTerm!).then((res) => setGames(res.games));
+    if (searchTerm) {
+      searchGamesByName(searchTerm).then((res) => setGames(res.games));
+    } else {
+      setGames([]);
+    }
   }, [searchTerm]);
   useEffect(() => {
     if (category || playTime || playerCount || price) {

@@ -41,7 +41,7 @@ export const criteriaFormService = (
     params.gt_min_players = min_players;
   }
   if (price) {
-    params.lt_price = price;
+    params.lt_msrp = price;
   }
   return axios
     .get(`https://api.boardgameatlas.com/api/search/`, {
