@@ -31,7 +31,7 @@ const Profile = () => {
   return (
     <div className="Profile">
       <FriendSearch setSearchTerm={setSearchTerm} />
-      <p>{profile?.name}</p>
+
       <ul>
         <Link to={`/myShelf/${account?.uid}`}>
           <li>My Shelf</li>

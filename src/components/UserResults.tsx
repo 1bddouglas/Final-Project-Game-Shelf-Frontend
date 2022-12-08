@@ -20,7 +20,7 @@ const UserResults = () => {
     <div className="UserResults">
       <ul>
         {friendList.map((friend) => (
-          <li>
+          <li key={friend._id}>
             <Link to={`/friendProfile/${friend.uid}`}>
               <p>{friend.name}</p>
             </Link>
