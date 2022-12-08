@@ -17,7 +17,7 @@ const CriteriaForm = ({
 }: Props) => {
   const [category, setCategory] = useState("");
   const [playTime, setPlayTime] = useState("");
-  const [playerCount, setPlayerCount] = useState("");
+  const [playerCount, setPlayerCount] = useState("1");
   const [price, setPrice] = useState("");
   const navigate = useNavigate();
 

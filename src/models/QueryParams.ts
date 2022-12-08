@@ -3,5 +3,5 @@ export default interface QueryParams {
   categories?: string;
   gt_min_players?: number;
   lt_max_playtime?: number;
-  lt_msrp?: number;
+  lt_price?: number;
 }

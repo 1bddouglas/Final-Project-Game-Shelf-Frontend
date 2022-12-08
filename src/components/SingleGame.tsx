@@ -116,7 +116,7 @@ const SingleGame = () => {
                   mins
                 </li>
               )}
-              {singleGame?.msrp && <li>Price: ${singleGame?.msrp}</li>}
+              {singleGame?.price && <li>Price: ${singleGame?.price}</li>}
               {singleGame?.primary_designer.name && (
                 <li>Designer: {singleGame?.primary_designer.name}</li>
               )}

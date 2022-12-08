@@ -1,0 +1,42 @@
+.Main {
+  background-image: linear-gradient(#827397, #363062);
+  display: flex;
+  flex-direction: row;
+}
+
+.Main ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Main li {
+  display: flex;
+  border: 3px solid black;
+  background-color: white;
+  flex-direction: column;
+  margin: 10px;
+  height: 240px;
+  width: 220px;
+  align-items: center;
+  background-image: linear-gradient(#827397 10%, white, #827397);
+}
+
+.Main li p {
+  text-align: center;
+}
+
+.Main p {
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.Main img {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  /* height: 150px; */
+}

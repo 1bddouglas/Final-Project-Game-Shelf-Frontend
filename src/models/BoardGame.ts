@@ -5,7 +5,7 @@ import PrimaryDesigner from "./PrimaryDesigner";
 export default interface BoardGame {
   id: string;
   name: string;
-  msrp: number;
+  price: number;
   year_published: number;
   min_players: number;
   max_players: number;
