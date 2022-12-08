@@ -19,6 +19,7 @@ import SingleGameResult from "./components/SingleGameResult";
 import { getAllAccounts } from "./services/accountAPIService";
 import UserResults from "./components/UserResults";
 import FriendProfile from "./components/FriendProfile";
+import MyFriends from "./components/MyFriends";
 
 function App() {
   getAllAccounts().then((res) => {
@@ -37,7 +38,8 @@ function App() {
           <Route path="/wishlist/:uid" element={<Wishlist />} />
           <Route path="/myShelf/:uid" element={<MyShelf />} />
           <Route path="/userResults" element={<UserResults />} />
-          <Route path="/friendProfile/:uid" element={<FriendProfile/>}/>
+          <Route path="/friendProfile/:uid" element={<FriendProfile />} />
+          <Route path="/myFriends/:uid" element={<MyFriends />} />
         </Routes>
       </Router>
     </div>

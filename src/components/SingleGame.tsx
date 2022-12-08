@@ -70,21 +70,24 @@ const SingleGame = () => {
   };
 
   const reviewSubmitHandler = (e: FormEvent) => {
-    e.preventDefault();
-    setTitle("");
-    setContent("");
-    const newReview: Review = {
-      reviewId: singleGame?.id!,
-      title,
-      content,
-    };
-    console.log(newReview);
-    createReview(newReview).then(() => {
-      getReviewsByID(singleGame?.id!).then((res) => {
-        setReviews(res);
-        console.log(res);
+    if (account) {
+      e.preventDefault();
+      setTitle("");
+      setContent("");
+      const newReview: Review = {
+        reviewId: singleGame?.id!,
+        title,
+        content,
+        reviewAccount: account,
+      };
+      console.log(newReview);
+      createReview(newReview).then(() => {
+        getReviewsByID(singleGame?.id!).then((res) => {
+          setReviews(res);
+          console.log(res);
+        });
       });
-    });
+    }
   };
 
   return (
@@ -124,10 +127,13 @@ const SingleGame = () => {
             <h2>Reviews</h2>
             <ul>
               {reviews.map((review) => (
-                <li key={review._id}>
-                  <p>{review.title}</p>
-                  <p>{review.content}</p>
-                </li>
+                <div>
+                  <p>{review.reviewAccount.name}</p>
+                  <li key={review._id}>
+                    <p>{review.title}</p>
+                    <p>{review.content}</p>
+                  </li>
+                </div>
               ))}
             </ul>
           </section>

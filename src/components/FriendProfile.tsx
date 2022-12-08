@@ -32,6 +32,21 @@ const FriendProfile = () => {
     }
   };
 
+  const removeFriendHandler = (name: string): void => {
+    if (account && friendProfile) {
+      const copyOfAccount = { ...account };
+      const copyOfFriendList = [...account.myFriends];
+      const foundIndex = copyOfFriendList.findIndex(
+        (friend) => friend === name
+      );
+      copyOfAccount.myFriends = [
+        ...copyOfFriendList.slice(0, foundIndex),
+        ...copyOfFriendList.slice(foundIndex + 1),
+      ];
+      updateAccountDatabase(copyOfAccount).then((res) => setAccount(res));
+    }
+  };
+
   const isFriendInList = (name: string): boolean => {
     if (account) {
       return account.myFriends.some((friend) => friend === name);
@@ -53,7 +68,9 @@ const FriendProfile = () => {
           {!isFriendInList(friendProfile!.name) ? (
             <button onClick={addFriendHandler}>Add Friend</button>
           ) : (
-            <button>delete Friend</button>
+            <button onClick={() => removeFriendHandler(friendProfile.name)}>
+              delete Friend
+            </button>
           )}
           <ul>
             <h3>{friendProfile?.name}'s Shelf</h3>
