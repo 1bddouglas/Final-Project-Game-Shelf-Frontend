@@ -45,7 +45,7 @@ const Profile = () => {
         <Link to={`/reviews/${account?.uid}`}>
           <li>My Reviews</li>
         </Link>
-        <li>My Posts</li>
+        {/* <li>My Posts</li> */}
       </ul>
     </div>
   );
