@@ -6,7 +6,7 @@ import "./SingleGame.css";
 import ImageComponant from "./ImageComponent";
 import AuthContext from "../context/AuthContext";
 import { updateAccountDatabase } from "../services/accountAPIService";
-import { createReview, getReviewsByID } from "../services/reviewAPIService";
+import { createReview, editReview, getReviewsByID } from "../services/reviewAPIService";
 import Review from "../models/Review";
 
 const SingleGame = () => {
@@ -15,6 +15,7 @@ const SingleGame = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [comment, setComment] = useState("");
 
   // const navigate = useNavigate();
   const id: string | undefined = useParams().id;
@@ -37,18 +38,34 @@ const SingleGame = () => {
     }
   }, [id]);
 
+  const isInWishlist = (id: string): boolean | undefined => {
+    return account?.wishlist.some((game) => {
+      return game.id === id;
+    });
+  };
+
+  const isInMyShelf = (id: string): boolean | undefined => {
+    return account?.myShelf.some((game) => {
+      return game.id === id;
+    });
+  };
+
   const addToWishlistHandler = () => {
     console.log(singleGame);
 
     if (account && singleGame) {
-      const copyOfAccount = { ...account };
-      const copyOfWishlist = [...account.wishlist];
-      copyOfAccount.wishlist = [...copyOfWishlist, singleGame];
-      console.log(copyOfWishlist);
+      if (isInWishlist(singleGame.id)) {
+        console.log("game already in wishlist");
+      } else {
+        const copyOfAccount = { ...account };
+        const copyOfWishlist = [...account.wishlist];
+        copyOfAccount.wishlist = [...copyOfWishlist, singleGame];
+        console.log(copyOfWishlist);
 
-      updateAccountDatabase(copyOfAccount).then((res) => {
-        setAccount(res);
-      });
+        updateAccountDatabase(copyOfAccount).then((res) => {
+          setAccount(res);
+        });
+      }
     }
   };
 
@@ -56,14 +73,27 @@ const SingleGame = () => {
     console.log(singleGame);
 
     if (account && singleGame) {
-      const copyOfAccount = { ...account };
-      const copyOfShelf = [...account.myShelf];
-      copyOfAccount.myShelf = [...copyOfShelf, singleGame];
-      console.log(copyOfShelf);
+      if (isInMyShelf(singleGame.id)) {
+        console.log("game already in shelf");
+      } else {
+        const copyOfAccount = { ...account };
+        const copyOfShelf = [...account.myShelf];
+        copyOfAccount.myShelf = [...copyOfShelf, singleGame];
+        console.log(copyOfShelf);
 
-      updateAccountDatabase(copyOfAccount).then((res) => {
-        setAccount(res);
-      });
+        updateAccountDatabase(copyOfAccount).then((res) => {
+          setAccount(res);
+        });
+      }
+    }
+  };
+
+  const commentSubmitHandler = (e: FormEvent) => {
+    if (account){
+      e.preventDefault();
+      setComment("")
+      
+      const copyOfReview = {...reviews}
     }
   };
 
@@ -97,12 +127,23 @@ const SingleGame = () => {
           <section className="game-information">
             <h2>{singleGame?.name}</h2>
             <ImageComponant src={singleGame?.images.medium!} />
-            <button className="shelf-button" onClick={addToShelfHandler}>
-              Add to my Shelf
-            </button>
-            <button className="wishlist-button" onClick={addToWishlistHandler}>
-              Add to my Wishlist
-            </button>
+            {account ? (
+              <button className="shelf-button" onClick={addToShelfHandler}>
+                Add to my Shelf
+              </button>
+            ) : (
+              <p className="sign-in-to-add">
+                Sign in to add to wishlist & shelf
+              </p>
+            )}
+            {account && (
+              <button
+                className="wishlist-button"
+                onClick={addToWishlistHandler}
+              >
+                Add to my Wishlist
+              </button>
+            )}
             <ul>
               {singleGame?.min_players && (
                 <li>
@@ -132,7 +173,24 @@ const SingleGame = () => {
                   <li>
                     <p>{review.title}</p>
                     <p>{review.content}</p>
+                    <ul>
+                      {review.comments?.map((comment) => (
+                        <li>{comment}</li>
+                      ))}
+                    </ul>
                   </li>
+                  <form>
+                    <label htmlFor="comment">Reply</label>
+                    <textarea
+                      name="comment"
+                      id="comment"
+                      cols={30}
+                      rows={1}
+                      value={comment}
+                      onChange={(e) => setComment(e.target.value)}
+                    ></textarea>
+                    <button>post</button>
+                  </form>
                 </div>
               ))}
             </ul>

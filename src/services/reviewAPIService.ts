@@ -25,3 +25,10 @@ export const getMyReviews = (id: string): Promise<Review[]> => {
     .then((res) => res.data)
     .catch((err) => console.log(err));
 };
+
+export const editReview = (review: Review): Promise<Review> => {
+  return axios
+    .put(`${baseUrl}/reviews/${review._id}`, review)
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+};

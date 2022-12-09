@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import Account from "../models/Account";
 import { findAccount, getAccountByName } from "../services/accountAPIService";
@@ -12,21 +12,27 @@ const Profile = () => {
   const [friendList, setFriendList] = useState<Account[]>([]);
   const [profile, setProfile] = useState<Account>();
   const { account } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   useEffect(() => {
-    if (searchTerm) {
-      getAccountByName(searchTerm).then((res) => {
-        setFriendList(res);
-        console.log(res);
-      });
+    console.log("reloaded page");
+
+    if (account) {
+      if (searchTerm) {
+        getAccountByName(searchTerm).then((res) => {
+          setFriendList(res);
+          console.log(res);
+        });
+      }
+      if (uid) {
+        findAccount(uid).then((res) => {
+          setProfile(res);
+          console.log(res);
+        });
+      }
+    } else {
+      navigate(`/home`);
     }
-    if (uid) {
-      findAccount(uid).then((res) => {
-        setProfile(res);
-        console.log(res);
-      });
-    }
-  }, [searchTerm, uid]);
+    }, [searchTerm, uid]);
 
   return (
     <div className="Profile">

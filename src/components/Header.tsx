@@ -3,12 +3,17 @@ import logo from "../assets/print_transparent.svg";
 import { Link, useNavigate } from "react-router-dom";
 import backArrow from "../assets/back-arrow.png";
 import { signInWithGoogle, signOut } from "../firebaseConfig";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import AuthContext from "../context/AuthContext";
 
 const Header = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+
+  const signOutButton = () => {
+    signOut();
+    navigate("/home");
+  };
 
   return (
     <header className="Header">
@@ -26,7 +31,7 @@ const Header = () => {
 
       {user ? (
         <>
-          <button className="sign-out" onClick={signOut}>
+          <button className="sign-out" onClick={signOutButton}>
             Sign out
           </button>
           <Link to={`/profile/${user.uid}`}>

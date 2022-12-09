@@ -6,9 +6,11 @@ import AuthContext from "./AuthContext";
 import { createAccount, findAccount } from "../services/accountAPIService";
 import Account from "../models/Account";
 
+
 function AuthContextProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [account, setAccount] = useState<Account | null>(null);
+  
 
   console.log(account);
   console.log(user);
@@ -32,6 +34,9 @@ function AuthContextProvider({ children }: { children: ReactNode }) {
             }).then((res) => setAccount(res));
           }
         });
+      } else {
+        setUser(null);
+        setAccount(null);
       }
     });
   }, []);
