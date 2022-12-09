@@ -6,8 +6,13 @@ import "./SingleGame.css";
 import ImageComponant from "./ImageComponent";
 import AuthContext from "../context/AuthContext";
 import { updateAccountDatabase } from "../services/accountAPIService";
-import { createReview, editReview, getReviewsByID } from "../services/reviewAPIService";
+import {
+  createReview,
+  editReview,
+  getReviewsByID,
+} from "../services/reviewAPIService";
 import Review from "../models/Review";
+import ReviewCommentForm from "./ReviewCommentForm";
 
 const SingleGame = () => {
   const { account, setAccount } = useContext(AuthContext);
@@ -88,24 +93,27 @@ const SingleGame = () => {
     }
   };
 
-  const commentSubmitHandler = (e: FormEvent) => {
-    if (account){
-      e.preventDefault();
-      setComment("")
-      
-      const copyOfReview = {...reviews}
+  const commentSubmitHandler = (index: number, comment: string) => {
+    if (account && singleGame) {
+      setComment(comment);
+      const copyOfReview = { ...reviews[index] };
+      copyOfReview.comments.push({ comment, displayName: account.name });
+      editReview(copyOfReview).then(() => {
+        getReviewsByID(singleGame?.id).then((res) => setReviews(res));
+      });
     }
   };
 
   const reviewSubmitHandler = (e: FormEvent) => {
+    e.preventDefault();
     if (account) {
-      e.preventDefault();
       setTitle("");
       setContent("");
       const newReview: Review = {
         reviewId: singleGame?.id!,
         title,
         content,
+        comments: [],
         reviewAccount: account,
         reviewerId: account.uid,
         gameName: singleGame?.name!,
@@ -167,30 +175,26 @@ const SingleGame = () => {
           <section className="game-reviews">
             <h2>Reviews</h2>
             <ul>
-              {reviews.map((review) => (
+              {reviews.map((review, index) => (
                 <div key={review._id}>
                   <p>{review.reviewAccount.name}</p>
                   <li>
                     <p>{review.title}</p>
                     <p>{review.content}</p>
+                    <h3>Comments</h3>
                     <ul>
                       {review.comments?.map((comment) => (
-                        <li>{comment}</li>
+                        <li key={Math.random()}>
+                          <p>{comment.displayName}</p>
+                          <p>{comment.comment}</p>
+                        </li>
                       ))}
                     </ul>
                   </li>
-                  <form>
-                    <label htmlFor="comment">Reply</label>
-                    <textarea
-                      name="comment"
-                      id="comment"
-                      cols={30}
-                      rows={1}
-                      value={comment}
-                      onChange={(e) => setComment(e.target.value)}
-                    ></textarea>
-                    <button>post</button>
-                  </form>
+                  <ReviewCommentForm
+                    createComment={commentSubmitHandler}
+                    index={index}
+                  />
                 </div>
               ))}
             </ul>

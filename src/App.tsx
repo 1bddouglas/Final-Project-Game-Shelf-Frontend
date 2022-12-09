@@ -39,6 +39,7 @@ function App() {
           <Route path="/myShelf/:uid" element={<MyShelf />} />
           <Route path="/userResults" element={<UserResults />} />
           <Route path="/friendProfile/:uid" element={<FriendProfile />} />
+          <Route path="/friendProfile/:name" element={<FriendProfile />} />
           <Route path="/myFriends/:uid" element={<MyFriends />} />
           <Route path="/reviews/:uid" element={<MyReviews />} />
           <Route path="*" element={<Navigate to={"/home"} />} />

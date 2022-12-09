@@ -82,7 +82,7 @@ const FriendProfile = () => {
             ))}
           </ul>
           <ul>
-            <h3>{friendProfile?.name} Wishlist</h3>
+            <h3>{friendProfile?.name}'s Wishlist</h3>
             {friendProfile?.wishlist.map((item) => (
               <li key={item.id}>
                 <p>{item.name}</p>
