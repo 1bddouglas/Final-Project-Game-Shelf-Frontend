@@ -26,7 +26,14 @@ const FriendProfile = () => {
     if (account && friendProfile) {
       const copyOfAccount = { ...account };
       const copyOfFriendList = [...account.myFriends];
-      copyOfAccount.myFriends = [...copyOfFriendList, friendProfile.name];
+      copyOfAccount.myFriends = [
+        ...copyOfFriendList,
+        {
+          name: friendProfile.name,
+          picture: friendProfile.profilePic,
+          id: friendProfile.uid,
+        },
+      ];
 
       updateAccountDatabase(copyOfAccount).then((res) => setAccount(res));
     }
@@ -37,7 +44,7 @@ const FriendProfile = () => {
       const copyOfAccount = { ...account };
       const copyOfFriendList = [...account.myFriends];
       const foundIndex = copyOfFriendList.findIndex(
-        (friend) => friend === name
+        (friend) => friend.name === name
       );
       copyOfAccount.myFriends = [
         ...copyOfFriendList.slice(0, foundIndex),
@@ -49,7 +56,7 @@ const FriendProfile = () => {
 
   const isFriendInList = (name: string): boolean => {
     if (account) {
-      return account.myFriends.some((friend) => friend === name);
+      return account.myFriends.some((friend) => friend.name === name);
     } else {
       return false;
     }

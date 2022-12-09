@@ -8,7 +8,7 @@ const MyFriends = () => {
     <div className="MyFriends">
       <ul>
         {account?.myFriends.map((friend) => (
-          <li>{friend}</li>
+          <li key={account._id}>{friend.name}</li>
         ))}
       </ul>
     </div>
