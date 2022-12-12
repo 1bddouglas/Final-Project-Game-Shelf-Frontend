@@ -1,7 +1,4 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { getTopRatedGames } from "./services/boardGameAPIService";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -15,7 +12,6 @@ import SearchResults from "./components/SearchResults";
 import SingleGame from "./components/SingleGame";
 import Wishlist from "./components/Wishlist";
 import Header from "./components/Header";
-import SingleGameResult from "./components/SingleGameResult";
 import { getAllAccounts } from "./services/accountAPIService";
 import UserResults from "./components/UserResults";
 import FriendProfile from "./components/FriendProfile";

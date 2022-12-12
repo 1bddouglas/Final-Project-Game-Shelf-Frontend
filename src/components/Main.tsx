@@ -8,7 +8,6 @@ import {
 import CriteriaForm from "./CriteriaForm";
 import "./Main.css";
 import SearchForm from "./SearchForm";
-import SearchResults from "./SearchResults";
 import SingleGameResult from "./SingleGameResult";
 
 const Main = () => {
