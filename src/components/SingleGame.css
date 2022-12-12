@@ -36,9 +36,10 @@
   width: 75%;
 }
 
-.SingleGame button {
+.SingleGame img {
   margin-top: 19px;
   margin-bottom: 10px;
+  width: 70px;
 }
 
 .SingleGame .comment-box {
@@ -73,3 +74,14 @@
 .SingleGame .comment-li {
   margin-left: 40px;
 }
+
+.SingleGame .single-game-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.SingleGame .shelf-button {
+  margin-right: 245px;
+  
+}
+

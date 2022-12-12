@@ -13,6 +13,8 @@ import {
 } from "../services/reviewAPIService";
 import Review from "../models/Review";
 import ReviewCommentForm from "./ReviewCommentForm";
+import bookshelf from "../assets/bookshelf.png";
+import wishlist from "../assets/wishlist.png";
 
 const SingleGame = () => {
   const { account, setAccount } = useContext(AuthContext);
@@ -137,23 +139,28 @@ const SingleGame = () => {
             <div className="single-game-img">
               <ImageComponant src={singleGame?.images.medium!} />
             </div>
-            {account ? (
-              <button className="shelf-button" onClick={addToShelfHandler}>
-                <img src="" alt="" />
-              </button>
-            ) : (
-              <p className="sign-in-to-add">
-                Sign in to add to wishlist & shelf
-              </p>
-            )}
-            {account && (
-              <button
-                className="wishlist-button"
-                onClick={addToWishlistHandler}
-              >
-                Add to my Wishlist
-              </button>
-            )}
+            <div className="single-game-buttons">
+              {account ? (
+                <img
+                  className="shelf-button"
+                  src={bookshelf}
+                  alt=""
+                  onClick={addToShelfHandler}
+                />
+              ) : (
+                <p className="sign-in-to-add">
+                  Sign in to add to wishlist & shelf
+                </p>
+              )}
+              {account && (
+                <img
+                  src={wishlist}
+                  alt=""
+                  onClick={addToWishlistHandler}
+                  className="wishlist-button"
+                />
+              )}
+            </div>
             <ul>
               {singleGame?.min_players && (
                 <li>
