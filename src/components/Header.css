@@ -1,4 +1,6 @@
 .Header {
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,11 +28,24 @@
 
 .Header .profile-pic {
   border-radius: 50px;
+  height: 80px;
+  width: 80px;
 }
 
 .Header .google-signin-button {
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
+}
+
+.Header .google-signin-button button {
+  width: 80px;
+  font-size: 14px;
+}
+
+.Header .sign-in {
+  width: 80px;
+  font-size: 14px;
 }
 
 .Header .google-signin-button p {
@@ -46,6 +61,7 @@
   cursor: pointer;
   background-color: white;
   padding: 7px;
+  font-size: 12px;
 }
 
 .Header .sign-out:hover,
@@ -61,7 +77,10 @@
 }
 
 .Header .sign-in-div {
-  width: 97px;
+  width: 118px;
   display: flex;
-  justify-content: center;
+}
+
+.Header .back-arrow-div {
+  width: 118px;
 }

@@ -14,6 +14,7 @@ const SingleGameResult = ({ game }: Props) => {
         <ImageComponentSmall src={game.images.small} />
       </Link>
       <p>{game.name}</p>
+      <p>${game.price}</p>
     </li>
   );
 };

@@ -1,0 +1,75 @@
+.SingleGame {
+  padding: 0 10px 0 10px;
+  height: 100%;
+  background-image: linear-gradient(#827397, #363062);
+  color: silver;
+}
+
+.SingleGame .game-information {
+  padding-top: 165px;
+}
+
+.SingleGame h2 {
+  text-align: center;
+}
+
+.SingleGame .game-information p {
+  border-radius: 10px;
+  color: silver;
+}
+
+.SingleGame .single-game-img img {
+  border: 3px solid black;
+  padding: 40px;
+  background-image: linear-gradient(white 90%, silver);
+  width: 300px;
+}
+
+.SingleGame .single-game-img {
+  display: flex;
+  justify-content: center;
+}
+
+.SingleGame form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.SingleGame button {
+  margin-top: 19px;
+  margin-bottom: 10px;
+}
+
+.SingleGame .comment-box {
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+}
+
+.SingleGame .review-title {
+  font-size: 25px;
+}
+
+.SingleGame .review-header {
+  display: flex;
+  border-bottom: 2px solid black;
+}
+
+.SingleGame .user-account img {
+  border-radius: 50px;
+  height: 50px;
+  margin-top: 6px;
+}
+
+.SingleGame .user-account p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.SingleGame .review-title {
+  font-size: 40px;
+}
+
+.SingleGame .comment-li {
+  margin-left: 40px;
+}

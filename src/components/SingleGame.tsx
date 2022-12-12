@@ -134,10 +134,12 @@ const SingleGame = () => {
         <div className="SingleGame">
           <section className="game-information">
             <h2>{singleGame?.name}</h2>
-            <ImageComponant src={singleGame?.images.medium!} />
+            <div className="single-game-img">
+              <ImageComponant src={singleGame?.images.medium!} />
+            </div>
             {account ? (
               <button className="shelf-button" onClick={addToShelfHandler}>
-                Add to my Shelf
+                <img src="" alt="" />
               </button>
             ) : (
               <p className="sign-in-to-add">
@@ -176,21 +178,29 @@ const SingleGame = () => {
             <h2>Reviews</h2>
             <ul>
               {reviews.map((review, index) => (
-                <div key={review._id}>
-                  <p>{review.reviewAccount.name}</p>
-                  <li>
-                    <p>{review.title}</p>
-                    <p>{review.content}</p>
-                    <h3>Comments</h3>
-                    <ul>
-                      {review.comments?.map((comment) => (
-                        <li key={Math.random()}>
-                          <p>{comment.displayName}</p>
-                          <p>{comment.comment}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
+                <div key={review._id} className="review-box">
+                  <div className="comment-box">
+                    <div className="review-header">
+                      <div className="user-account">
+                        <img src={review.reviewAccount.profilePic} alt="" />
+                        <p>{review.reviewAccount.name}</p>
+                      </div>
+                      <div className="review-title">{review.title}</div>
+                    </div>
+
+                    <li>
+                      <p>{review.content}</p>
+                      <h3>Comments</h3>
+                      <ul>
+                        {review.comments?.map((comment) => (
+                          <li key={Math.random()} className="comment-li">
+                            <p>{comment.displayName}</p>
+                            <p>{comment.comment}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  </div>
                   <ReviewCommentForm
                     createComment={commentSubmitHandler}
                     index={index}

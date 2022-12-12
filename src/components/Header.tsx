@@ -17,11 +17,13 @@ const Header = () => {
 
   return (
     <header className="Header">
-      <img
-        src={backArrow}
-        className="back-arrow"
-        onClick={() => navigate(-1)}
-      />
+      <div className="back-arrow-div">
+        <img
+          src={backArrow}
+          className="back-arrow"
+          onClick={() => navigate(-1)}
+        />
+      </div>
 
       <Link to={"/"}>
         <h1>
