@@ -42,13 +42,15 @@ const Main = () => {
 
   return (
     <div className="Main">
-      <SearchForm setSearchTerm={setSearchTerm} />
-      <CriteriaForm
-        chooseCategory={setCategory}
-        maxPlayTime={setPlayTime}
-        minPlayers={setPlayerCount}
-        msrp={setPrice}
-      />
+      <div className="forms-div">
+        <SearchForm setSearchTerm={setSearchTerm} />
+        <CriteriaForm
+          chooseCategory={setCategory}
+          maxPlayTime={setPlayTime}
+          minPlayers={setPlayerCount}
+          msrp={setPrice}
+        />
+      </div>
       <ul>
         {games.map((game) => (
           <SingleGameResult key={game.id} game={game} />

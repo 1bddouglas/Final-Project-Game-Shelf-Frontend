@@ -1,14 +1,23 @@
 .Main {
   background-image: linear-gradient(#827397, #363062);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-top: 165px;
+}
+
+.Main .forms-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
 }
 
 .Main ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 18px;
 }
 
 .Main li {
@@ -40,4 +49,7 @@
   align-items: center;
   width: 170px;
   /* height: 150px; */
+}
+
+.Main .SearchForm {
 }

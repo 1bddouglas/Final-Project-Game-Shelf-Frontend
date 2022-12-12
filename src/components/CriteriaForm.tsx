@@ -40,67 +40,83 @@ const CriteriaForm = ({
 
   return (
     <form className="CriteriaForm" onSubmit={criteriaSubmitHandler}>
-      <label htmlFor="categories">Categories</label>
-      <select
-        name="categories"
-        id="categories"
-        value={category}
-        onChange={(e) => {
-          setCategory(e.target.value);
-        }}
-      >
-        <option value="none">Select category</option>
-        <option value="fW5vusE96B">Campaign</option>
-        <option value="PinhJrhnxU">Bluffing</option>
-        <option value="ge8pIhEUGE">Cooperative</option>
-        <option value="ZTneo8TaIO">Fantasy</option>
-        <option value="rrvd68LjOR">Kickstarter</option>
-        <option value="FC6ElKI9tk">Miniatures</option>
-        <option value="X8J7RM6dxX">Party Game</option>
-        <option value="3B3QpKvXD3">Sci-Fi</option>
-        <option value="hShsL2DktG">Sports</option>
-        <option value="a2eMKxxlVW">Two player Only Game</option>
-        <option value="YGHGDjahKY">Trivia</option>
-        <option value="djokexoK0U">Video Game Theme</option>
-      </select>
-      <label htmlFor="PlayTime">Play Time</label>
-      <input
-        type="range"
-        id="playTime"
-        name="playTime"
-        min="0"
-        max="10"
-        value={playTime}
-        step=".25"
-        onChange={(e) => {
-          setPlayTime(e.target.value);
-        }}
-      />
-      <p>{playTime}</p>
-      <label htmlFor="playerCount">Player Count</label>
-      <input
-        type="number"
-        id="playerCount"
-        name="playerCount"
-        min="1"
-        max="12"
-        value={playerCount}
-        onChange={(e) => {
-          setPlayerCount(e.target.value);
-        }}
-      />
-      <label htmlFor="price">Price</label>
-      <input
-        type="number"
-        name="price"
-        id="price"
-        min="0"
-        value={price}
-        onChange={(e) => {
-          setPrice(e.target.value);
-        }}
-      />
-      <button>Submit</button>
+      <div className="category-div">
+        <label htmlFor="categories">Categories</label>
+        <select
+          name="categories"
+          id="categories"
+          value={category}
+          onChange={(e) => {
+            setCategory(e.target.value);
+          }}
+        >
+          <option value="none">Select category</option>
+          <option value="fW5vusE96B">Campaign</option>
+          <option value="PinhJrhnxU">Bluffing</option>
+          <option value="ge8pIhEUGE">Cooperative</option>
+          <option value="ZTneo8TaIO">Fantasy</option>
+          <option value="rrvd68LjOR">Kickstarter</option>
+          <option value="FC6ElKI9tk">Miniatures</option>
+          <option value="X8J7RM6dxX">Party Game</option>
+          <option value="3B3QpKvXD3">Sci-Fi</option>
+          <option value="hShsL2DktG">Sports</option>
+          <option value="a2eMKxxlVW">Two player Only Game</option>
+          <option value="YGHGDjahKY">Trivia</option>
+          <option value="djokexoK0U">Video Game Theme</option>
+        </select>
+      </div>
+      <div className="playtime-div">
+        <label htmlFor="PlayTime">Play Time</label>
+        <div className="range-numbers">
+          <input
+            type="range"
+            id="playTime"
+            name="playTime"
+            min="0"
+            max="10"
+            value={playTime}
+            step=".25"
+            onChange={(e) => {
+              setPlayTime(e.target.value);
+            }}
+          />
+          <div className="playtime-paragraph">
+            <p>{playTime}hrs</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="playercount-div">
+        <label htmlFor="playerCount">Player Count</label>
+        <input
+          type="number"
+          id="playerCount"
+          name="playerCount"
+          min="1"
+          max="12"
+          value={playerCount}
+          onChange={(e) => {
+            setPlayerCount(e.target.value);
+          }}
+        />
+      </div>
+      <div className="price-div">
+        <label htmlFor="price">Price</label>
+        <input
+          className="price-input"
+          type="number"
+          name="price"
+          id="price"
+          min="0"
+          value={price}
+          onChange={(e) => {
+            setPrice(e.target.value);
+          }}
+        />
+      </div>
+      <div className="btn-div">
+        <button>Submit</button>
+      </div>
     </form>
   );
 };

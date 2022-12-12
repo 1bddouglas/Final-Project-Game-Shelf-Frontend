@@ -24,6 +24,7 @@ const SearchForm = ({ setSearchTerm }: Props) => {
         id="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search for Games"
       />
       <button>Search</button>
     </form>

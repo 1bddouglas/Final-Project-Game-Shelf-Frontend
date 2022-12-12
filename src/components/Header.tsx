@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "../assets/print_transparent.svg";
+import logo from "../assets/print_transparent.png";
 import { Link, useNavigate } from "react-router-dom";
 import backArrow from "../assets/back-arrow.png";
 import { signInWithGoogle, signOut } from "../firebaseConfig";
@@ -23,11 +23,11 @@ const Header = () => {
         onClick={() => navigate(-1)}
       />
 
-      <h1>
-        <Link to={"/"}>
+      <Link to={"/"}>
+        <h1>
           <img src={logo} alt="The Game Shelf" className="logo" />
-        </Link>
-      </h1>
+        </h1>
+      </Link>
 
       {user ? (
         <>

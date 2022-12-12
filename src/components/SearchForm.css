@@ -1,0 +1,21 @@
+.SearchForm input {
+  border-radius: 50px;
+  padding: 7px;
+  width: 200px;
+  margin-right: 15px;
+}
+
+.SearchForm button {
+  margin-top: 5px;
+  border-radius: 50px;
+  border: 0px;
+  cursor: pointer;
+  background-color: white;
+  padding: 7px;
+}
+
+.SearchForm button:hover {
+  background-color: black;
+  color: white;
+  transition: 200ms;
+}
