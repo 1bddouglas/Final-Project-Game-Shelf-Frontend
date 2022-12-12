@@ -3,7 +3,7 @@ import logo from "../assets/print_transparent.svg";
 import { Link, useNavigate } from "react-router-dom";
 import backArrow from "../assets/back-arrow.png";
 import { signInWithGoogle, signOut } from "../firebaseConfig";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 
 const Header = () => {
@@ -31,25 +31,29 @@ const Header = () => {
 
       {user ? (
         <>
-          <button className="sign-out" onClick={signOutButton}>
-            Sign out
-          </button>
-          <Link to={`/profile/${user.uid}`}>
-            <p>{user.displayName}</p>
-          </Link>
+          <div className="google-signin-button">
+            <button className="sign-out" onClick={signOutButton}>
+              Sign Out
+            </button>
+            <Link to={`/profile/${user.uid}`}>
+              <p>{user.displayName}</p>
+            </Link>
 
-          {!!user.photoURL && (
-            <p>
-              <Link to={`/profile/${user.uid}`}>
-                <img src={user.photoURL} alt="" />
-              </Link>
-            </p>
-          )}
+            {!!user.photoURL && (
+              <p>
+                <Link to={`/profile/${user.uid}`}>
+                  <img src={user.photoURL} alt="" className="profile-pic" />
+                </Link>
+              </p>
+            )}
+          </div>
         </>
       ) : (
-        <button className="sign-in" onClick={signInWithGoogle}>
-          Sign in
-        </button>
+        <div className="sign-in-div">
+          <button className="sign-in" onClick={signInWithGoogle}>
+            Sign in
+          </button>
+        </div>
       )}
       {/* TODO {<div></div>} */}
     </header>

@@ -2,6 +2,7 @@
   background-image: linear-gradient(#827397, #363062);
   display: flex;
   flex-direction: row;
+  padding-top: 165px;
 }
 
 .Main ul {

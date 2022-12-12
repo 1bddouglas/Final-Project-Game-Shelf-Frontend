@@ -1,11 +1,67 @@
 .Header .logo {
-  width: 200px;
+  width: 300px;
+  height: 200px;
 }
 .Header .back-arrow {
   width: 50px;
+  cursor: pointer;
 }
 
 .Header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  height: 165px;
+  background-color: #c8b6e2;
+  border-bottom: 2px solid black;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Header .profile-pic {
+  border-radius: 50px;
+}
+
+.Header .google-signin-button {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.Header .google-signin-button p {
+  margin: 0;
+  text-decoration: none;
+}
+
+.Header h1 {
+  margin: 0;
+}
+
+.Header .sign-out,
+.sign-in {
+  margin-top: 5px;
+  border-radius: 50px;
+  border: 0px;
+  cursor: pointer;
+  background-color: white;
+  padding: 7px;
+}
+
+.Header .sign-out:hover,
+.sign-in:hover {
+  background-color: black;
+  color: white;
+  transition: 200ms;
+}
+
+.Header a {
+  text-decoration: none;
+  color: black;
+}
+
+.Header .sign-in-div {
+  width: 97px;
+  display: flex;
+  justify-content: center;
 }
