@@ -196,7 +196,7 @@ const SingleGame = () => {
                     </div>
 
                     <li>
-                      <p>{review.content}</p>
+                      <p>"{review.content}"</p>
                       <h3>Comments</h3>
                       <ul>
                         {review.comments?.map((comment) => (

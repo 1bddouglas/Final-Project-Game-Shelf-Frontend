@@ -41,28 +41,28 @@ const Profile = () => {
       </div>
       <ul>
         <div>
-          <Link to={`/myShelf/${account?.uid}`}>
-            <div className="circle-div my-shelf-div">
+          <div className="circle-div my-shelf-div">
+            <Link to={`/myShelf/${account?.uid}`}>
               <li>My Shelf</li>
-            </div>
-          </Link>
-          <Link to={`/wishlist/${account?.uid}`}>
-            <div className="circle-div my-wishlist-div">
+            </Link>
+          </div>
+          <div className="circle-div my-wishlist-div">
+            <Link to={`/wishlist/${account?.uid}`}>
               <li>My Wishlist</li>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
         <div>
-          <Link to={`/myFriends/${account?.uid}`}>
-            <div className="circle-div my-friends-div">
+          <div className="circle-div my-friends-div">
+            <Link to={`/myFriends/${account?.uid}`}>
               <li>My Friends</li>
-            </div>
-          </Link>
-          <Link to={`/reviews/${account?.uid}`}>
-            <div className="circle-div my-reviews-div">
+            </Link>
+          </div>
+          <div className="circle-div my-reviews-div">
+            <Link to={`/reviews/${account?.uid}`}>
               <li>My Reviews</li>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
       </ul>
     </div>

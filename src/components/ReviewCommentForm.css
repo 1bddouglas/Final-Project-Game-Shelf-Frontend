@@ -1,0 +1,17 @@
+.ReviewCommentForm button {
+  background-color: white;
+  border: none;
+  border-radius: 50px;
+  margin-left: 10px;
+  padding: 10px 20px;
+}
+
+.ReviewCommentForm button:hover {
+  background-color: black;
+  color: white;
+  transition: 200ms;
+}
+
+.ReviewCommentForm .reply-input {
+  display: flex;
+}

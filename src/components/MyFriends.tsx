@@ -7,10 +7,14 @@ const MyFriends = () => {
   const { account } = useContext(AuthContext);
   return (
     <div className="MyFriends">
+      <h2>My Friends</h2>
       <ul>
         {account?.myFriends.map((friend) => (
           <Link to={`/friendProfile/${friend.id}`}>
-            <li key={account._id}>{friend.name}</li>
+            <li key={account._id}>
+              <img src={friend.picture} alt={friend.name} />{" "}
+              <p>{friend.name}</p>
+            </li>
           </Link>
         ))}
       </ul>

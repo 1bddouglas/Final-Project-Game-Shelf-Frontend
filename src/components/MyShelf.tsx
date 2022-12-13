@@ -2,6 +2,7 @@ import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import { updateAccountDatabase } from "../services/accountAPIService";
 import "./MyShelf.css";
+import trash from "../assets/trash-icon.png";
 
 const MyShelf = () => {
   const { account, setAccount } = useContext(AuthContext);
@@ -25,12 +26,18 @@ const MyShelf = () => {
 
   return (
     <div className="MyShelf">
+      <h2>My Shelf</h2>
       <ul>
         {account?.myShelf.map((game) => (
           <li key={game.id}>
-            <p>{game.name}</p>
             <img src={game.images.medium} alt={game.name} />
-            <button onClick={() => deleteHandler(game.id)}>delete</button>
+            <p>{game.name}</p>
+            <img
+              className="trash"
+              src={trash}
+              alt="trash-icon"
+              onClick={() => deleteHandler(game.id)}
+            />
           </li>
         ))}
       </ul>

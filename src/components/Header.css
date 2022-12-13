@@ -5,9 +5,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 0px 20px 0px 20px;
-  height: 165px;
-  background-color: #c8b6e2;
-  border-bottom: 2px solid black;
+  height: 250px;
+  background-image: linear-gradient(
+    rgb(255, 255, 255) 80%,
+    rgba(100, 100, 100, 0)
+  );
   position: fixed;
   width: 100%;
   box-sizing: border-box;
@@ -57,7 +59,7 @@
 .sign-in {
   margin-top: 5px;
   border-radius: 50px;
-  border: 0px;
+  border: 1px solid black;
   cursor: pointer;
   background-color: white;
   padding: 7px;

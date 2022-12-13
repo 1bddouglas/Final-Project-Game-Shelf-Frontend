@@ -1,8 +1,10 @@
 .SingleGame {
   padding: 0 10px 0 10px;
+  color: white;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   height: 100%;
-  background-image: linear-gradient(#827397, #363062);
-  color: silver;
 }
 
 .SingleGame .game-information {
@@ -11,11 +13,13 @@
 
 .SingleGame h2 {
   text-align: center;
+  font-size: 40px;
+  margin: 20px 0 0 0;
 }
 
 .SingleGame .game-information p {
   border-radius: 10px;
-  color: silver;
+  color: white;
 }
 
 .SingleGame .single-game-img img {
@@ -71,6 +75,10 @@
   font-size: 40px;
 }
 
+.SingleGame .review-box {
+  margin-bottom: 40px;
+}
+
 .SingleGame .comment-li {
   margin-left: 40px;
 }
@@ -82,6 +90,16 @@
 
 .SingleGame .shelf-button {
   margin-right: 245px;
-  
 }
 
+.SingleGame .review-submit-btn {
+  margin: 10px 0;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.SingleGame .review-submit-btn:hover {
+  background-color: black;
+  color: white;
+  transition: 200ms;
+}

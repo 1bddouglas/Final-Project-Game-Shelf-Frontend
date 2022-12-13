@@ -38,12 +38,12 @@ const SearchResults = () => {
   }, [category, playTime, playerCount, price]);
   return (
     <div className="SearchResults">
+      <h2>Search Results</h2>
       <ul>
         {games.map((game) => (
           <SingleGameResult key={game.id} game={game} />
         ))}
       </ul>
-      <p>Hello World</p>
     </div>
   );
 };
