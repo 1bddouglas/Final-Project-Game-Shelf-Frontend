@@ -1,9 +1,8 @@
 .MyShelf {
   height: 100vh;
   padding-top: 250px;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
 }
 
 .MyShelf h2 {
@@ -20,16 +19,22 @@
 }
 
 .MyShelf li {
-  display: flex;
-  justify-content: center;
   border: 3px solid black;
   background-color: white;
-  flex-direction: column;
+
   margin: 10px;
   height: 290px;
   width: 260px;
-  align-items: center;
+
   background-image: linear-gradient(white 70%, silver);
+}
+
+.MyShelf .my-shelf-box {
+  justify-content: space-evenly;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .MyShelf img {
@@ -37,7 +42,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 170px;
+  height: 140px;
+  width: 140px;
 }
 
 .MyShelf p {
@@ -47,7 +53,9 @@
 }
 
 .MyShelf .trash {
+  height: 35px;
   width: 30px;
   margin: 0;
   cursor: pointer;
+  bottom: 10px;
 }

@@ -30,14 +30,16 @@ const MyShelf = () => {
       <ul>
         {account?.myShelf.map((game) => (
           <li key={game.id}>
-            <img src={game.images.medium} alt={game.name} />
-            <p>{game.name}</p>
-            <img
-              className="trash"
-              src={trash}
-              alt="trash-icon"
-              onClick={() => deleteHandler(game.id)}
-            />
+            <div className="my-shelf-box">
+              <img src={game.images.medium} alt={game.name} />
+              <p>{game.name}</p>
+              <img
+                className="trash"
+                src={trash}
+                alt="trash-icon"
+                onClick={() => deleteHandler(game.id)}
+              />
+            </div>
           </li>
         ))}
       </ul>

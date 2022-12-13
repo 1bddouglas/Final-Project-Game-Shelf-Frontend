@@ -2,14 +2,10 @@
   top: 0;
   left: 0;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0px 20px 0px 20px;
+  padding: 20px 20px 0px 20px;
   height: 250px;
-  background-image: linear-gradient(
-    rgb(255, 255, 255) 80%,
-    rgba(100, 100, 100, 0)
-  );
+  background-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(100, 100, 100, 0));
   position: fixed;
   width: 100%;
   box-sizing: border-box;
@@ -26,18 +22,22 @@
 .Header .back-arrow {
   width: 50px;
   cursor: pointer;
+  background-color: white;
+  border-radius: 50px;
+  border: 1px solid white;
 }
 
 .Header .profile-pic {
   border-radius: 50px;
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
 }
 
 .Header .google-signin-button {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .Header .google-signin-button button {
@@ -71,11 +71,12 @@
   background-color: black;
   color: white;
   transition: 200ms;
+  border: 1px solid white;
 }
 
 .Header a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .Header .sign-in-div {
@@ -85,4 +86,6 @@
 
 .Header .back-arrow-div {
   width: 118px;
+  position: relative;
+  top: 50px;
 }
