@@ -17,10 +17,39 @@
   padding: 0px 10px 0px 10px;
 }
 
+.CriteriaForm label {
+  padding-bottom: 5px;
+}
+
 .CriteriaForm input {
   border-radius: 50px;
   border: none;
   padding: 5px;
+}
+
+.CriteriaForm input[type="range"] {
+  overflow: hidden;
+  -webkit-appearance: none;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.CriteriaForm input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+
+  -webkit-appearance: none;
+  color: #13bba4;
+  /* margin-top: -1px; */
+}
+
+.CriteriaForm input[type="range"]::-webkit-slider-thumb {
+  width: 10px;
+  -webkit-appearance: none;
+  height: 10px;
+  /* cursor: ew-resize; */
+  background: #5f5d5d;
+  box-shadow: -85px 0 0 80px black;
+  border-radius: 50%;
 }
 
 .CriteriaForm select {

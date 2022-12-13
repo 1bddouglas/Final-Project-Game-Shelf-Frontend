@@ -1,0 +1,26 @@
+.FriendSearch label {
+  font-size: 25px;
+}
+
+.FriendSearch input {
+  font-size: 20px;
+  margin: 20px;
+  border-radius: 50px;
+  border: none;
+  padding: 15px 30px 15px 30px;
+}
+
+.FriendSearch button {
+  font-size: 20px;
+  padding: 15px 30px 15px 30px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.FriendSearch button:hover,
+button:focus {
+  background-color: black;
+  color: white;
+  transition: 400ms;
+}

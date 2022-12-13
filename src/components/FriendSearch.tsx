@@ -1,8 +1,5 @@
-import { FormEvent, useContext, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../context/AuthContext";
-import AuthContextProvider from "../context/AuthContextProvider";
-import Account from "../models/Account";
 import "./FriendSearch.css";
 
 interface Props {
@@ -12,7 +9,6 @@ interface Props {
 const FriendSearch = ({ setSearchTerm }: Props) => {
   const [searchFriend, setSearchFriend] = useState("");
   const navigate = useNavigate();
-  // const account: Account = useContext(AuthContext)
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
     setSearchTerm(searchFriend);
@@ -22,7 +18,7 @@ const FriendSearch = ({ setSearchTerm }: Props) => {
 
   return (
     <form className="FriendSearch" onSubmit={submitHandler}>
-      <label htmlFor="friends">find friends</label>
+      <label htmlFor="friends">Find Friends</label>
       <input
         type="text"
         name="friends"
@@ -30,7 +26,7 @@ const FriendSearch = ({ setSearchTerm }: Props) => {
         value={searchFriend}
         onChange={(e) => setSearchFriend(e.target.value)}
       />
-      <button>Find friend</button>
+      <button>Find Friend</button>
     </form>
   );
 };

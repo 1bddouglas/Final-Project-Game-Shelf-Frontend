@@ -32,26 +32,38 @@ const Profile = () => {
     } else {
       navigate(`/home`);
     }
-    }, [searchTerm, uid]);
+  }, [searchTerm, uid]);
 
   return (
     <div className="Profile">
-      <FriendSearch setSearchTerm={setSearchTerm} />
-
+      <div className="search-div">
+        <FriendSearch setSearchTerm={setSearchTerm} />
+      </div>
       <ul>
-        <Link to={`/myShelf/${account?.uid}`}>
-          <li>My Shelf</li>
-        </Link>
-        <Link to={`/wishlist/${account?.uid}`}>
-          <li>My Wishlist</li>
-        </Link>
-        <Link to={`/myFriends/${account?.uid}`}>
-          <li>My Friends</li>
-        </Link>
-        <Link to={`/reviews/${account?.uid}`}>
-          <li>My Reviews</li>
-        </Link>
-        {/* <li>My Posts</li> */}
+        <div>
+          <Link to={`/myShelf/${account?.uid}`}>
+            <div className="circle-div my-shelf-div">
+              <li>My Shelf</li>
+            </div>
+          </Link>
+          <Link to={`/wishlist/${account?.uid}`}>
+            <div className="circle-div my-wishlist-div">
+              <li>My Wishlist</li>
+            </div>
+          </Link>
+        </div>
+        <div>
+          <Link to={`/myFriends/${account?.uid}`}>
+            <div className="circle-div my-friends-div">
+              <li>My Friends</li>
+            </div>
+          </Link>
+          <Link to={`/reviews/${account?.uid}`}>
+            <div className="circle-div my-reviews-div">
+              <li>My Reviews</li>
+            </div>
+          </Link>
+        </div>
       </ul>
     </div>
   );

@@ -1,3 +1,58 @@
 .Profile {
-    border: 50px black solid;;
+  padding: 170px 30px 0 30px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 165px;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+.Profile .search-div {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.Profile .circle-div {
+  font-size: 50px;
+  background: linear-gradient(70%, transparent) white;
+  transition: background-color 1s, color 1s;
+  place-content: center;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  box-sizing: border-box;
+}
+
+.Profile .circle-div:hover,
+.circle-div:focus {
+  -webkit-text-stroke: 0.5px black;
+  border: 3px solid black;
+  background-color: silver;
+  opacity: 0.5;
+}
+
+.Profile ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+}
+
+.Profile li {
+  color: white;
+}
+
+.Profile li:hover {
+  opacity: 1;
+}
+
+.Profile a {
+  text-decoration: none;
 }
