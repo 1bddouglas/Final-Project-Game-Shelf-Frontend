@@ -23,9 +23,9 @@ const MyReviews = () => {
       <ul>
         {myReviews.map((review) => (
           <li key={review._id}>
-            <p>{review.gameName}</p>
-            <p>{review.title}</p>
-            <p>{review.content}</p>
+            <p>Game: {review.gameName}</p>
+            <p>Title: {review.title}</p>
+            <p>"{review.content}"</p>
           </li>
         ))}
       </ul>

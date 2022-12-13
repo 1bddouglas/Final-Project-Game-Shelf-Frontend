@@ -8,6 +8,7 @@ import {
   updateAccountDatabase,
 } from "../services/accountAPIService";
 import "./FriendProfile.css";
+import trash from "../assets/trash-icon.png";
 
 const FriendProfile = () => {
   const [friendProfile, setFriendProfile] = useState<Account>();
@@ -66,37 +67,49 @@ const FriendProfile = () => {
     <>
       {friendProfile ? (
         <div className="FriendProfile">
-          <p>{friendProfile?.name}</p>
-          <img
-            src={friendProfile?.profilePic || "test"}
-            alt={friendProfile?.name}
-            className="profilePic"
-          />
-          {!isFriendInList(friendProfile!.name) ? (
-            <button onClick={addFriendHandler}>Add Friend</button>
-          ) : (
-            <button onClick={() => removeFriendHandler(friendProfile.name)}>
-              delete Friend
-            </button>
-          )}
-          <ul>
-            <h3>{friendProfile?.name}'s Shelf</h3>
-            {friendProfile?.myShelf.map((item) => (
-              <li key={item.id}>
-                <p>{item.name}</p>
-                <img src={item.images.small} alt={item.name} />
-              </li>
-            ))}
-          </ul>
-          <ul>
-            <h3>{friendProfile?.name}'s Wishlist</h3>
-            {friendProfile?.wishlist.map((item) => (
-              <li key={item.id}>
-                <p>{item.name}</p>
-                <img src={item.images.medium} alt={item.name} />
-              </li>
-            ))}
-          </ul>
+          <div className="profile-name-img">
+            <h2>{friendProfile?.name}</h2>
+            <div className="img-trash">
+              <img
+                src={friendProfile?.profilePic || "test"}
+                alt={friendProfile?.name}
+                className="profilePic"
+              />
+              {!isFriendInList(friendProfile!.name) ? (
+                <button className="add-friend-btn" onClick={addFriendHandler}>
+                  Add Friend
+                </button>
+              ) : (
+                <img
+                  className="trash-friend"
+                  src={trash}
+                  onClick={() => removeFriendHandler(friendProfile.name)}
+                />
+              )}
+            </div>
+          </div>
+          <h3>{friendProfile?.name}'s Shelf</h3>
+          <div className="my-friends-stuff">
+            <ul>
+              {friendProfile?.myShelf.map((item) => (
+                <li key={item.id}>
+                  <img src={item.images.small} alt={item.name} />
+                  <p>{item.name}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <h3>{friendProfile?.name}'s Wishlist</h3>
+          <div className="my-friends-stuff">
+            <ul>
+              {friendProfile?.wishlist.map((item) => (
+                <li key={item.id}>
+                  <img src={item.images.medium} alt={item.name} />
+                  <p>{item.name}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       ) : (
         <p>...loading</p>

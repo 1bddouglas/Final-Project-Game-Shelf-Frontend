@@ -1,3 +1,84 @@
 .FriendProfile {
-  padding-top: 250px;
+  padding: 250px 20px 0px 20px;
+}
+
+.FriendProfile ul {
+  padding: 30px 30px 30px 30px;
+  display: flex;
+
+  overflow-x: scroll;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.FriendProfile li {
+  display: flex;
+  justify-content: center;
+  border: 3px solid black;
+  background-color: white;
+  flex-direction: column;
+  margin: 10px;
+  height: 290px;
+  width: 260px;
+  align-items: center;
+  background-image: linear-gradient(white 70%, silver);
+}
+
+.FriendProfile li img {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 190px;
+}
+
+.FriendProfile .my-friends-stuff {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.FriendProfile .trash-friend {
+  cursor: pointer;
+  width: 27px;
+}
+
+.FriendProfile .profilePic {
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.FriendProfile .profile-name-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.FriendProfile .img-trash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FriendProfile .add-friend-btn {
+  margin-top: 5px;
+  border-radius: 50px;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: white;
+  padding: 7px;
+  font-size: 12px;
+}
+
+.FriendProfile .add-friend-btn:hover {
+  background-color: black;
+  color: white;
+  transition: 200ms;
+  border: 1px solid white;
+}
+
+.FriendProfile h2,
+h3 {
+  color: white;
 }
