@@ -2,6 +2,7 @@ import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import { updateAccountDatabase } from "../services/accountAPIService";
 import "./Wishlist.css";
+import trash from "../assets/trash-icon.png";
 
 const Wishlist = () => {
   const { account, setAccount } = useContext(AuthContext);
@@ -25,12 +26,20 @@ const Wishlist = () => {
 
   return (
     <div className="Wishlist">
+      <h2>My Wishlist </h2>
       <ul>
         {account?.wishlist.map((game) => (
           <li key={game.id}>
-            <p>{game.name}</p>
-            <img src={game.images.small} alt={game.name} />
-            <button onClick={() => deleteHandler(game.id)}>delete</button>
+            <div className="my-wishlist-box">
+              <img src={game.images.small} alt={game.name} />
+              <p>{game.name}</p>
+              <img
+                src={trash}
+                alt=""
+                onClick={() => deleteHandler(game.id)}
+                className="trash"
+              />
+            </div>
           </li>
         ))}
       </ul>

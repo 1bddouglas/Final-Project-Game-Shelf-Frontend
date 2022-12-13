@@ -1,17 +1,18 @@
 .SingleGame {
   color: white;
+  padding: 250px 20px 0 20px;
 
   height: 100%;
-}
-
-.SingleGame .game-information {
-  padding-top: 165px;
 }
 
 .SingleGame h2 {
   text-align: center;
   font-size: 40px;
   margin: 20px 0 0 0;
+}
+
+.SingleGame .game-information ul {
+  list-style: none;
 }
 
 .SingleGame .game-information p {
@@ -29,6 +30,10 @@
 .SingleGame .single-game-img {
   display: flex;
   justify-content: center;
+}
+
+.SingleGame .game-reviews ul {
+  list-style: none;
 }
 
 .SingleGame form {
@@ -87,6 +92,11 @@
 
 .SingleGame .shelf-button {
   margin-right: 245px;
+  cursor: pointer;
+}
+
+.SingleGame .wishlist-button {
+  cursor: pointer;
 }
 
 .SingleGame .review-submit-btn {

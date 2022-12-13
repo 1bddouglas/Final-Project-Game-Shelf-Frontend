@@ -10,12 +10,14 @@ const MyFriends = () => {
       <h2>My Friends</h2>
       <ul>
         {account?.myFriends.map((friend) => (
-          <Link to={`/friendProfile/${friend.id}`}>
-            <li key={account._id}>
+          <li key={account._id}>
+            <Link to={`/friendProfile/${friend.id}`}>
               <img src={friend.picture} alt={friend.name} />{" "}
+            </Link>
+            <Link to={`/friendProfile/${friend.id}`}>
               <p>{friend.name}</p>
-            </li>
-          </Link>
+            </Link>
+          </li>
         ))}
       </ul>
     </div>

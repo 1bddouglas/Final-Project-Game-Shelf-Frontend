@@ -24,15 +24,17 @@ const UserResults = () => {
       <ul>
         {friendList.map((friend) => (
           <>
-            {friend.uid !== account?.uid ? (
+            {friend.uid !== account?.uid && (
               <li key={friend._id}>
-                <Link to={`/friendProfile/${friend.uid}`}>
-                  <p>{friend.name}</p>
-                </Link>
-                <img src={friend.profilePic} alt="" />
+                <div className="result-div">
+                  <Link to={`/friendProfile/${friend.uid}`}>
+                    <img src={friend.profilePic} alt="" />
+                  </Link>
+                  <Link to={`/friendProfile/${friend.uid}`}>
+                    <p>{friend.name}</p>
+                  </Link>
+                </div>
               </li>
-            ) : (
-              <p>Could not find users</p>
             )}
           </>
         ))}

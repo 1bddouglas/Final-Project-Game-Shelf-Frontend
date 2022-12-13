@@ -1,8 +1,6 @@
 .MyFriends {
   height: 100vh;
   padding: 250px 20px 0 20px;
-
-  background-size: 400% 400%;
 }
 
 .MyFriends h2 {
@@ -14,13 +12,15 @@
 .MyFriends ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   list-style: none;
 }
 
 .MyFriends li {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .MyFriends a {

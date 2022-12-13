@@ -17,3 +17,8 @@ button {
 input {
   font-family: "Schoolbell", cursive;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}
