@@ -25,11 +25,11 @@ const Header = () => {
         />
       </div>
 
-      <Link to={"/"}>
-        <h1>
+      <h1>
+        <Link to={"/"}>
           <img src={logo} alt="The Game Shelf" className="logo" />
-        </h1>
-      </Link>
+        </Link>
+      </h1>
 
       {user ? (
         <>
