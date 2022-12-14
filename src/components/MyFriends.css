@@ -12,6 +12,7 @@
 .MyFriends ul {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   list-style: none;
 }
@@ -30,4 +31,16 @@
 
 .MyFriends img {
   border-radius: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+  .MyFriends li {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .MyFriends li {
+    width: 20%;
+  }
 }

@@ -12,7 +12,8 @@
 }
 
 .Header .logo {
-  width: 250px;
+  width: 150px;
+  margin-top: 30px;
 }
 
 .Header h1 {
@@ -95,4 +96,11 @@
   position: relative;
   top: 50px;
   height: 60px;
+}
+
+@media only screen and (min-width: 768px) {
+  .Header .logo {
+    width: 250px;
+    margin: 0;
+  }
 }

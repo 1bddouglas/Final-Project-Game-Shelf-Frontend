@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   padding-top: 250px;
-
   height: 100vh;
 }
 
@@ -27,6 +26,14 @@
   box-sizing: border-box;
 }
 
+.Profile .my-wishlist-div {
+  margin-bottom: 20px;
+}
+
+.Profile .my-friends-div {
+  margin-top: 20px;
+}
+
 .Profile .circle-div:hover,
 .circle-div:focus {
   border: 3px solid black;
@@ -36,7 +43,9 @@
 .Profile ul {
   list-style: none;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 100px;
 }
 
@@ -48,4 +57,13 @@
 .Profile a:hover {
   -webkit-text-stroke: 0.5px black;
   transition: 1s;
+}
+
+@media only screen and (min-width: 768px) {
+  .Profile ul {
+    flex-direction: row;
+  }
+  .Profile .circle-div {
+    margin: 30px;
+  }
 }

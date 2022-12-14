@@ -19,6 +19,7 @@
 
 .CriteriaForm label {
   padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .CriteriaForm input {
@@ -89,13 +90,28 @@
 
 .CriteriaForm .btn-div {
   display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  margin-left: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 .CriteriaForm button:hover {
   background-color: black;
   color: white;
   transition: 200ms;
+}
+
+@media only screen and (min-width: 768px) {
+  .CriteriaForm {
+    flex-direction: row;
+  }
+  .CriteriaForm .category-playtime-div,
+  .playercount-price-div {
+    display: flex;
+  }
+  .CriteriaForm .btn-div {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-left: 30px;
+  }
 }
