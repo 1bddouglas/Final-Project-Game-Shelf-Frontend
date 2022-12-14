@@ -202,7 +202,7 @@ const SingleGame = () => {
                         {review.comments?.map((comment) => (
                           <li key={Math.random()} className="comment-li">
                             <p>{comment.displayName}</p>
-                            <p>{comment.comment}</p>
+                            <p>"{comment.comment}"</p>
                           </li>
                         ))}
                       </ul>

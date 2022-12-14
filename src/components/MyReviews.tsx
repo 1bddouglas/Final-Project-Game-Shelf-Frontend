@@ -20,6 +20,7 @@ const MyReviews = () => {
   }, [id]);
   return (
     <div className="MyReviews">
+      <h2>My Reviews</h2>
       <ul>
         {myReviews.map((review) => (
           <li key={review._id}>

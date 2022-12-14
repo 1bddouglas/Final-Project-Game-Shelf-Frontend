@@ -3,16 +3,16 @@
 }
 
 .FriendProfile ul {
-  display: grid;
+  /* display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 25%;
-  overflow-x: auto;
+  overflow-x: auto; */
 
-  /* padding: 30px 30px 30px 30px;
+  padding: 30px 30px 30px 30px;
   display: flex;
   overflow-x: scroll;
   width: 100%;
-  box-sizing: border-box; */
+  box-sizing: border-box;
 }
 ::-webkit-scrollbar {
   width: auto;
@@ -45,7 +45,7 @@
   flex-direction: column;
   margin: 10px;
   height: 290px;
-  width: 260px;
+  min-width: 260px;
   align-items: center;
   background-image: linear-gradient(white 70%, silver);
 }

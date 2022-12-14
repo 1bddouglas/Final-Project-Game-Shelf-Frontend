@@ -1,6 +1,6 @@
 import { freemem } from "os";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import Account from "../models/Account";
 import {
@@ -89,22 +89,26 @@ const FriendProfile = () => {
             </div>
           </div>
           <h3>{friendProfile?.name}'s Shelf</h3>
-          <div className="my-friends-stuff snaps-inline">
+          <div className="my-friends-stuff">
             <ul>
               {friendProfile?.myShelf.map((item) => (
                 <li key={item.id}>
-                  <img src={item.images.small} alt={item.name} />
+                  <Link to={`/singleGame/${item.id}`}>
+                    <img src={item.images.small} alt={item.name} />
+                  </Link>
                   <p>{item.name}</p>
                 </li>
               ))}
             </ul>
           </div>
           <h3>{friendProfile?.name}'s Wishlist</h3>
-          <div className="my-friends-stuff snaps-inline">
+          <div className="my-friends-stuff">
             <ul>
               {friendProfile?.wishlist.map((item) => (
                 <li key={item.id}>
-                  <img src={item.images.medium} alt={item.name} />
+                  <Link to={`/singleGame/${item.id}`}>
+                    <img src={item.images.medium} alt={item.name} />
+                  </Link>
                   <p>{item.name}</p>
                 </li>
               ))}
