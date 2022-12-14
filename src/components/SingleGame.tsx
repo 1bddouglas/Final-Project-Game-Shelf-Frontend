@@ -24,6 +24,7 @@ const SingleGame = () => {
   const [content, setContent] = useState("");
   const [reviews, setReviews] = useState<Review[]>([]);
   const [comment, setComment] = useState("");
+  const [expandDescription, setExpandDescription] = useState(false);
 
   // const navigate = useNavigate();
   const id: string | undefined = useParams().id;
@@ -181,7 +182,12 @@ const SingleGame = () => {
               )}
             </ul>
             {singleGame?.description_preview && (
-              <ShowMoreText className="show-more-description">
+              <ShowMoreText
+                className={`show-more-description ${
+                  expandDescription ? "clicked" : ""
+                }`}
+                onClick={() => setExpandDescription((prev) => !prev)}
+              >
                 <p className="description">{cleanText}</p>
               </ShowMoreText>
             )}
