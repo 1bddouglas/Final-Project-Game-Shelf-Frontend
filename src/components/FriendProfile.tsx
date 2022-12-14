@@ -89,7 +89,7 @@ const FriendProfile = () => {
             </div>
           </div>
           <h3>{friendProfile?.name}'s Shelf</h3>
-          <div className="my-friends-stuff">
+          <div className="my-friends-stuff snaps-inline">
             <ul>
               {friendProfile?.myShelf.map((item) => (
                 <li key={item.id}>
@@ -100,7 +100,7 @@ const FriendProfile = () => {
             </ul>
           </div>
           <h3>{friendProfile?.name}'s Wishlist</h3>
-          <div className="my-friends-stuff">
+          <div className="my-friends-stuff snaps-inline">
             <ul>
               {friendProfile?.wishlist.map((item) => (
                 <li key={item.id}>
