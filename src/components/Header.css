@@ -2,7 +2,7 @@
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 20px 20px 0px 20px;
   height: 250px;
   background-image: linear-gradient(rgb(0, 0, 0) 65%, rgba(100, 100, 100, 0));
@@ -30,24 +30,26 @@
 
 .Header .profile-pic {
   border-radius: 50px;
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
+}
+
+.Header p {
+  text-align: center;
+  font-size: 15px;
 }
 
 .Header .google-signin-button {
   display: flex;
   flex-direction: column-reverse;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
-}
-
-.Header .google-signin-button button {
-  width: 80px;
-  font-size: 14px;
+  width: 144px;
+  margin-top: 20px;
 }
 
 .Header .sign-in {
-  width: 80px;
+  width: 60px;
   font-size: 14px;
 }
 
@@ -84,6 +86,7 @@
   width: 118px;
   display: flex;
   align-items: center;
+  justify-content: end;
 }
 
 .Header .sign-in {
@@ -92,15 +95,36 @@
 }
 
 .Header .back-arrow-div {
-  width: 118px;
+  width: 144px;
   position: relative;
   top: 50px;
   height: 60px;
 }
 
 @media only screen and (min-width: 768px) {
+  .Header {
+    justify-content: space-between;
+  }
   .Header .logo {
     width: 250px;
     margin: 0;
+  }
+  .Header .google-signin-button {
+    margin: 0;
+    align-items: center;
+  }
+  .Header .profile-pic {
+    border-radius: 50px;
+    height: 70px;
+    width: 70px;
+  }
+  .Header p {
+    font-size: 25px;
+  }
+  .Header .sign-in {
+    width: 100px;
+  }
+  .Header .sign-out {
+    width: 100px;
   }
 }

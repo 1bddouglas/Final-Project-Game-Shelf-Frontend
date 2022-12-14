@@ -3,6 +3,12 @@
   padding: 250px 20px 0 20px;
 }
 
+.UserResults h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 35px;
+}
+
 .UserResults ul {
   padding: 0;
   margin: 0;
@@ -35,4 +41,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .UserResults li {
+    width: 20%;
+  }
 }

@@ -21,6 +21,7 @@ const UserResults = () => {
   }, [searchTerm]);
   return (
     <div className="UserResults">
+      <h2>Search Results</h2>
       <ul>
         {friendList.map((friend) => (
           <>

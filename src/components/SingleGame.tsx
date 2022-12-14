@@ -15,6 +15,7 @@ import Review from "../models/Review";
 import ReviewCommentForm from "./ReviewCommentForm";
 import bookshelf from "../assets/bookshelf.png";
 import wishlist from "../assets/wishlist.png";
+import ShowMoreText from "react-show-more-text";
 
 const SingleGame = () => {
   const { account, setAccount } = useContext(AuthContext);
@@ -179,7 +180,11 @@ const SingleGame = () => {
                 <li>Designer: {singleGame?.primary_designer.name}</li>
               )}
             </ul>
-            {singleGame?.description_preview && <p>{cleanText}</p>}
+            {singleGame?.description_preview && (
+              <ShowMoreText className="show-more-description">
+                <p className="description">{cleanText}</p>
+              </ShowMoreText>
+            )}
           </section>
           <section className="game-reviews">
             <h2>Reviews</h2>
