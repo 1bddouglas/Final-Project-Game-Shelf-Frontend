@@ -14,7 +14,9 @@ import {
 import Review from "../models/Review";
 import ReviewCommentForm from "./ReviewCommentForm";
 import bookshelf from "../assets/bookshelf.png";
-import wishlist from "../assets/wishlist.png";
+import whiteBookshelf from "../assets/bookshelf-white.png";
+import wishlistBlack from "../assets/wishlist-black.png";
+import wishlistWhite from "../assets/wishlist-white.png";
 import ShowMoreText from "react-show-more-text";
 
 const SingleGame = () => {
@@ -97,6 +99,23 @@ const SingleGame = () => {
     }
   };
 
+  const deleteHandler = (id: string): void => {
+    if (account) {
+      const copyOfAccount = { ...account };
+      const copyOfShelf = [...account.myShelf];
+      const foundIndex = copyOfShelf.findIndex((game) => {
+        return game.id === id;
+      });
+      copyOfAccount.myShelf = [
+        ...copyOfShelf.slice(0, foundIndex),
+        ...copyOfShelf.slice(foundIndex + 1),
+      ];
+      updateAccountDatabase(copyOfAccount).then((res) => {
+        setAccount(res);
+      });
+    }
+  };
+
   const commentSubmitHandler = (index: number, comment: string) => {
     if (account && singleGame) {
       setComment(comment);
@@ -142,7 +161,11 @@ const SingleGame = () => {
               <ImageComponant src={singleGame?.images.medium!} />
             </div>
             <div className="single-game-buttons">
-              {account ? (
+              {!account ? (
+                <p className="sign-in-to-add">
+                  Sign in to add to wishlist & shelf
+                </p>
+              ) : !isInMyShelf(singleGame.id) ? (
                 <img
                   className="shelf-button"
                   src={bookshelf}
@@ -150,15 +173,25 @@ const SingleGame = () => {
                   onClick={addToShelfHandler}
                 />
               ) : (
-                <p className="sign-in-to-add">
-                  Sign in to add to wishlist & shelf
-                </p>
-              )}
-              {account && (
                 <img
-                  src={wishlist}
+                  src={whiteBookshelf}
+                  alt=""
+                  className="shelf-button"
+                  onClick={() => deleteHandler(singleGame.id)}
+                />
+              )}
+              {account && !isInWishlist(singleGame.id) ? (
+                <img
+                  src={wishlistBlack}
                   alt=""
                   onClick={addToWishlistHandler}
+                  className="wishlist-button"
+                />
+              ) : (
+                <img
+                  src={wishlistWhite}
+                  alt=""
+                  onClick={() => deleteHandler(singleGame.id)}
                   className="wishlist-button"
                 />
               )}
