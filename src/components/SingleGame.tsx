@@ -99,20 +99,41 @@ const SingleGame = () => {
     }
   };
 
-  const deleteHandler = (id: string): void => {
+  const shelfDeleteHandler = (id: string): void => {
     if (account) {
       const copyOfAccount = { ...account };
       const copyOfShelf = [...account.myShelf];
       const foundIndex = copyOfShelf.findIndex((game) => {
         return game.id === id;
       });
-      copyOfAccount.myShelf = [
-        ...copyOfShelf.slice(0, foundIndex),
-        ...copyOfShelf.slice(foundIndex + 1),
-      ];
-      updateAccountDatabase(copyOfAccount).then((res) => {
-        setAccount(res);
+      if (foundIndex !== -1) {
+        copyOfAccount.myShelf = [
+          ...copyOfShelf.slice(0, foundIndex),
+          ...copyOfShelf.slice(foundIndex + 1),
+        ];
+        updateAccountDatabase(copyOfAccount).then((res) => {
+          setAccount(res);
+        });
+      }
+    }
+  };
+
+  const wishlistDeleteHandler = (id: string): void => {
+    if (account) {
+      const copyOfAccount = { ...account };
+      const copyOfWishlist = [...account.wishlist];
+      const foundIndex = copyOfWishlist.findIndex((game) => {
+        return game.id === id;
       });
+      if (foundIndex !== -1) {
+        copyOfAccount.wishlist = [
+          ...copyOfWishlist.slice(0, foundIndex),
+          ...copyOfWishlist.slice(foundIndex + 1),
+        ];
+        updateAccountDatabase(copyOfAccount).then((res) => {
+          setAccount(res);
+        });
+      }
     }
   };
 
@@ -177,22 +198,24 @@ const SingleGame = () => {
                   src={whiteBookshelf}
                   alt=""
                   className="shelf-button"
-                  onClick={() => deleteHandler(singleGame.id)}
+                  onClick={() => shelfDeleteHandler(singleGame.id)}
                 />
               )}
-              {account && !isInWishlist(singleGame.id) ? (
+              {!account ? (
+                <p></p>
+              ) : !isInWishlist(singleGame.id) ? (
                 <img
+                  className="wishlist-button"
                   src={wishlistBlack}
                   alt=""
                   onClick={addToWishlistHandler}
-                  className="wishlist-button"
                 />
               ) : (
                 <img
                   src={wishlistWhite}
                   alt=""
-                  onClick={() => deleteHandler(singleGame.id)}
                   className="wishlist-button"
+                  onClick={() => wishlistDeleteHandler(singleGame.id)}
                 />
               )}
             </div>

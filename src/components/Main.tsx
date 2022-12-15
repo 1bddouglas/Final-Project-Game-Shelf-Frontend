@@ -50,6 +50,7 @@ const Main = () => {
           minPlayers={setPlayerCount}
           msrp={setPrice}
         />
+        
       </div>
       <h2>Top Rated Games</h2>
       <ul>
