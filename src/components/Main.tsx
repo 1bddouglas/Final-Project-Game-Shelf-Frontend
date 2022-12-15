@@ -51,6 +51,7 @@ const Main = () => {
           msrp={setPrice}
         />
       </div>
+      <h2>Top Rated Games</h2>
       <ul>
         {games.map((game) => (
           <SingleGameResult key={game.id} game={game} />

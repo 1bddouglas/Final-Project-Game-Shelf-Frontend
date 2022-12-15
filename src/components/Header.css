@@ -123,8 +123,10 @@
   }
   .Header .sign-in {
     width: 100px;
+    font-size: 20px;
   }
   .Header .sign-out {
     width: 100px;
+    font-size: 20px;
   }
 }

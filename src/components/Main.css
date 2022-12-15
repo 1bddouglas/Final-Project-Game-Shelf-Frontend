@@ -27,6 +27,12 @@
   padding-top: 20px;
 }
 
+.Main h2 {
+  font-size: 40px;
+  color: white;
+  text-decoration: underline;
+}
+
 .Main ul {
   display: flex;
   flex-direction: row;
