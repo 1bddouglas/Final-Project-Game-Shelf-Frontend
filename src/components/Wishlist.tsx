@@ -3,6 +3,7 @@ import AuthContext from "../context/AuthContext";
 import { updateAccountDatabase } from "../services/accountAPIService";
 import "./Wishlist.css";
 import trash from "../assets/trash-icon.png";
+import { Link } from "react-router-dom";
 
 const Wishlist = () => {
   const { account, setAccount } = useContext(AuthContext);
@@ -31,7 +32,9 @@ const Wishlist = () => {
         {account?.wishlist.map((game) => (
           <li key={game.id}>
             <div className="my-wishlist-box">
-              <img src={game.images.small} alt={game.name} />
+              <Link to={`/singleGame/${game.id}`}>
+                <img src={game.images.small} alt={game.name} />
+              </Link>
               <p>{game.name}</p>
               <img
                 src={trash}

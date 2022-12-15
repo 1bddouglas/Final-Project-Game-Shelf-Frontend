@@ -20,6 +20,13 @@
   }
 }
 
+.Main h2 {
+  color: white;
+  text-decoration: underline;
+  margin-bottom: 15px;
+  font-size: 40px;
+}
+
 .Main .forms-div {
   display: flex;
   flex-direction: column;

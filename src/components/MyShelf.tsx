@@ -3,6 +3,7 @@ import AuthContext from "../context/AuthContext";
 import { updateAccountDatabase } from "../services/accountAPIService";
 import "./MyShelf.css";
 import trash from "../assets/trash-icon.png";
+import { Link } from "react-router-dom";
 
 const MyShelf = () => {
   const { account, setAccount } = useContext(AuthContext);
@@ -31,7 +32,9 @@ const MyShelf = () => {
         {account?.myShelf.map((game) => (
           <li key={game.id}>
             <div className="my-shelf-box">
-              <img src={game.images.medium} alt={game.name} />
+              <Link to={`/singleGame/${game.id}`}>
+                <img src={game.images.medium} alt={game.name} />
+              </Link>
               <p>{game.name}</p>
               <img
                 className="trash"

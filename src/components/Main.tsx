@@ -50,6 +50,7 @@ const Main = () => {
           minPlayers={setPlayerCount}
           msrp={setPrice}
         />
+        <h2>Top Rated Games</h2>
       </div>
       <ul>
         {games.map((game) => (
