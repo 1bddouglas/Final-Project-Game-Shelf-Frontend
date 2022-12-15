@@ -67,7 +67,7 @@ const CriteriaForm = ({
           </select>
         </div>
         <div className="playtime-div">
-          <label htmlFor="PlayTime">Play Time</label>
+          <label htmlFor="PlayTime">Max Play-Time</label>
           <div className="range-numbers">
             <input
               type="range"
@@ -89,7 +89,7 @@ const CriteriaForm = ({
       </div>
       <div className="playercount-price-div">
         <div className="playercount-div">
-          <label htmlFor="playerCount">Player Count</label>
+          <label htmlFor="playerCount">Min-Players</label>
           <input
             type="number"
             id="playerCount"
@@ -103,7 +103,7 @@ const CriteriaForm = ({
           />
         </div>
         <div className="price-div">
-          <label htmlFor="price">Price</label>
+          <label htmlFor="price">Max Price</label>
           <input
             className="price-input"
             type="number"
